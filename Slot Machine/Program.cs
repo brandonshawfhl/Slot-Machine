@@ -12,7 +12,7 @@
 
             int[,] slotMachine = new int[SLOT_MACHINE_SIZE, SLOT_MACHINE_SIZE];
 
-            for (int verticalNumber = 0; verticalNumber < 3; verticalNumber++)
+            for (int verticalNumber = 0; verticalNumber < SLOT_MACHINE_SIZE; verticalNumber++)
             {
                 slotMachine[verticalNumber, 0] = rng.Next(0, RANDOM_MAX);
                 slotMachine[verticalNumber, 1] = rng.Next(0, RANDOM_MAX);
