@@ -24,28 +24,16 @@
             topLine.Add(slotMachine[0,0]);
             topLine.Add(slotMachine[0,1]);
             topLine.Add(slotMachine[0,2]);
-            if (topLine[0] == topLine[1] && topLine[1] == topLine[2]) 
-            {
-                Console.WriteLine("Congratulations! You won big!");
-            }
 
             List<int> middleLine = new List<int>();
             middleLine.Add(slotMachine[1,0]);
             middleLine.Add(slotMachine[1,1]);
             middleLine.Add(slotMachine[1,2]);
-            if (middleLine[0] == middleLine[1] && middleLine[1] == middleLine[2])
-            {
-                Console.WriteLine("Congratulations! You won big!");
-            }
 
             List<int> bottomLine = new List<int>();
             bottomLine.Add(slotMachine[2,0]);
             bottomLine.Add(slotMachine[2,1]);
             bottomLine.Add(slotMachine[2,2]);
-            if (bottomLine[0] == bottomLine[1] && bottomLine[1] == bottomLine[2])
-            {
-                Console.WriteLine("Congratulations! You won big!");
-            }
 
             Console.Write("\t");
             Console.Write(topLine[0]);
@@ -59,6 +47,21 @@
             Console.Write(bottomLine[0]);
             Console.Write(bottomLine[1]);
             Console.WriteLine(bottomLine[2]);
+
+            if (topLine[0] == topLine[1] && topLine[1] == topLine[2]) 
+            {
+                Console.WriteLine("Congratulations! You won big!");
+            }
+
+            if (middleLine[0] == middleLine[1] && middleLine[1] == middleLine[2])
+            {
+                Console.WriteLine("Congratulations! You won big!");
+            }
+
+            if (bottomLine[0] == bottomLine[1] && bottomLine[1] == bottomLine[2])
+            {
+                Console.WriteLine("Congratulations! You won big!");
+            }
         }
 
     }
