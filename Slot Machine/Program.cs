@@ -3,13 +3,14 @@
     internal class Program
     {
         public static readonly Random rng = new Random();
+        const int SLOT_MACHINE_SIZE = 3;
         const int RANDOM_MAX = 9;
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to Virtual Slot Machine!");
             Console.WriteLine("Play to win big!\n");
 
-            int[,] slotMachine = new int[3, 3];
+            int[,] slotMachine = new int[SLOT_MACHINE_SIZE, SLOT_MACHINE_SIZE];
 
             for (int verticalNumber = 0; verticalNumber < 3; verticalNumber++)
             {
@@ -18,8 +19,8 @@
                 slotMachine[verticalNumber, 2] = rng.Next(0, RANDOM_MAX);
             }
 
-            List<int> topLine = new List<int>();
             // I couldn't figure out how to initialize the list with the array positions so I .added them
+            List<int> topLine = new List<int>();
             topLine.Add(slotMachine[0,0]);
             topLine.Add(slotMachine[0,1]);
             topLine.Add(slotMachine[0,2]);
