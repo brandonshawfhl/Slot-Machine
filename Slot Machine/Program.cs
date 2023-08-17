@@ -12,6 +12,8 @@
             Console.WriteLine("Welcome to Virtual Slot Machine!");
             Console.WriteLine("Play to win big!");
             Console.WriteLine($"You have ${moneyCount} left to bet.\n");
+            Console.WriteLine("How much money would you like to bet?");
+            int userBet = Convert.ToInt32(Console.ReadLine());
 
             int[,] slotMachine = new int[SLOT_MACHINE_SIZE, SLOT_MACHINE_SIZE];
 
