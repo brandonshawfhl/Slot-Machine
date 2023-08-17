@@ -8,10 +8,11 @@
         const int WINNINGS = 10;
         static void Main(string[] args)
         {
+            int moneyCount = 100;
             Console.WriteLine("Welcome to Virtual Slot Machine!");
-            Console.WriteLine("Play to win big!\n");
+            Console.WriteLine("Play to win big!");
+            Console.WriteLine($"You have ${moneyCount} left to bet.\n");
 
-            int moneyCount = 0;
             int[,] slotMachine = new int[SLOT_MACHINE_SIZE, SLOT_MACHINE_SIZE];
 
             for (int verticalNumber = 0; verticalNumber < SLOT_MACHINE_SIZE; verticalNumber++)
