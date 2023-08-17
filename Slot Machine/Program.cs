@@ -5,11 +5,13 @@
         public static readonly Random rng = new Random();
         const int SLOT_MACHINE_SIZE = 3;
         const int RANDOM_MAX = 9;
+        const int WINNINGS = 10;
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to Virtual Slot Machine!");
             Console.WriteLine("Play to win big!\n");
 
+            int moneyCount = 0;
             int[,] slotMachine = new int[SLOT_MACHINE_SIZE, SLOT_MACHINE_SIZE];
 
             for (int verticalNumber = 0; verticalNumber < SLOT_MACHINE_SIZE; verticalNumber++)
@@ -51,16 +53,19 @@
             if (topLine[0] == topLine[1] && topLine[1] == topLine[2]) 
             {
                 Console.WriteLine("Congratulations! You won big!");
+                moneyCount = moneyCount + WINNINGS;
             }
 
             if (middleLine[0] == middleLine[1] && middleLine[1] == middleLine[2])
             {
                 Console.WriteLine("Congratulations! You won big!");
+                moneyCount = moneyCount + WINNINGS;
             }
 
             if (bottomLine[0] == bottomLine[1] && bottomLine[1] == bottomLine[2])
             {
                 Console.WriteLine("Congratulations! You won big!");
+                moneyCount = moneyCount + WINNINGS;
             }
         }
 
