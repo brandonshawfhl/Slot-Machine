@@ -67,7 +67,8 @@
                 Console.WriteLine("Congratulations! You won big!");
                 moneyCount = moneyCount + WINNINGS;
             }
-        }
 
+            Console.WriteLine("Sorry. Not this time!");
+        }
     }
 }
