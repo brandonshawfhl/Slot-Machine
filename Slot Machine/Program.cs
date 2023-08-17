@@ -18,6 +18,11 @@
                 slotMachine[verticalNumber, 2] = rng.Next(0, RANDOM_MAX);
             }
 
+            List<int> topLine = new List<int>();  
+            List<int> middleLine = new List<int>();
+            List<int> bottomLine = new List<int>();
+
+
             Console.Write("\t");
             Console.Write(slotMachine[0, 0] + " ");
             Console.Write(slotMachine[0, 1] + " ");
