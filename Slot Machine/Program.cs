@@ -1,4 +1,6 @@
-﻿namespace Slot_Machine
+﻿using System.Runtime.CompilerServices;
+
+namespace Slot_Machine
 {
     internal class Program
     {
@@ -14,6 +16,10 @@
             Console.WriteLine($"You have ${moneyCount} left to bet.\n");
             Console.WriteLine("How much money would you like to bet?");
             int userBet = Convert.ToInt32(Console.ReadLine());
+            if (userBet <= 0)
+            {
+                Console.WriteLine();
+            }
             moneyCount = moneyCount - userBet;
 
             int[,] slotMachine = new int[SLOT_MACHINE_SIZE, SLOT_MACHINE_SIZE];
