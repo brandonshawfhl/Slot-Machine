@@ -7,7 +7,7 @@ namespace Slot_Machine
         public static readonly Random rng = new Random();
         const int COLUMN_SIZE = 3;
         const int ROW_SIZE = 3;
-        const int RANDOM_MAX = 9;
+        const int RANDOM_MAX = 10;
         const int WINNINGS = 10;
         static void Main(string[] args)
         {
@@ -31,13 +31,15 @@ namespace Slot_Machine
 
             for (int verticalNumber = 0; verticalNumber < COLUMN_SIZE; verticalNumber++)
             {
-                slotMachine[verticalNumber, 0] = rng.Next(0, RANDOM_MAX);
-                slotMachine[verticalNumber, 1] = rng.Next(0, RANDOM_MAX);
-                slotMachine[verticalNumber, 2] = rng.Next(0, RANDOM_MAX);
+                for (int horizontalNumber = 0; horizontalNumber < ROW_SIZE; horizontalNumber++)
+                {
+                slotMachine[verticalNumber, horizontalNumber] = rng.Next(0, RANDOM_MAX);
+                }
             }
 
             // I couldn't figure out how to initialize the list with the array positions so I .added them
             List<int> topLine = new List<int>();
+            for (int verticalNumber = 0;
             topLine.Add(slotMachine[0, 0]);
             topLine.Add(slotMachine[0, 1]);
             topLine.Add(slotMachine[0, 2]);
