@@ -8,7 +8,6 @@ namespace Slot_Machine
         const int COLUMN_SIZE = 3;
         const int ROW_SIZE = 3;
         const int RANDOM_MAX = 10;
-        const int WINNINGS = 10;
         static void Main(string[] args)
         {
             int moneyCount = 100;
@@ -42,15 +41,17 @@ namespace Slot_Machine
             Console.WriteLine("\t" + slotMachine[1, 0] + slotMachine[1, 1] + slotMachine[1, 2]);
             Console.WriteLine("\t" + slotMachine[2, 0] + slotMachine[2, 1] + slotMachine[2, 2]);
 
-            //Comparison for winning or losing first row
-            for (int columnNumber = 0; columnNumber < COLUMN_SIZE; columnNumber++)
+            for (int rowNumber = 0; rowNumber < ROW_SIZE; rowNumber++)
             {
-                if (slotMachine[columnNumber, 0] != slotMachine[columnNumber + 1, 0])
+                for (int columnNumber = rowNumber; columnNumber < COLUMN_SIZE; columnNumber++)
                 {
-                    break;
+                    if (slotMachine[columnNumber, rowNumber] != slotMachine[columnNumber + 1, rowNumber])
+                    {
+                        break;
+                    }
+                    Console.WriteLine($"Congratulations! Row {rowNumber} was a winner for you!");
+                    moneyCount = moneyCount + userWinnings;
                 }
-                Console.WriteLine("Congratulations! You won big!");
-                moneyCount = moneyCount + WINNINGS;
             }
 
             if (middleLine[0] == middleLine[1] && middleLine[1] == middleLine[2])
