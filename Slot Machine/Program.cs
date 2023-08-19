@@ -28,21 +28,25 @@ namespace Slot_Machine
                     if (moneyCount <= 0)
                     {
                         Console.WriteLine("Sorry it looks like your are flat broke! You lose!");
-                    }
-                    Console.WriteLine($"You have ${moneyCount} left to bet.\n");
-                    Console.WriteLine("How much money would you like to bet?");
-                    userBet = Convert.ToInt32(Console.ReadLine());
-
-                    if (userBet <= 0)
-                    {
-                        Console.WriteLine("Please bet at least $1.");
                         break;
                     }
 
-                    if (userBet > moneyCount)
+                    bool betIsNotValid = userBet > moneyCount || userBet <= 0;
+                    while (betIsNotValid)
                     {
-                        Console.WriteLine("You don't have that much money!");
-                        break;
+                        Console.WriteLine($"You have ${moneyCount} left to bet.\n");
+                        Console.WriteLine("How much money would you like to bet?");
+                        userBet = Convert.ToInt32(Console.ReadLine());
+
+                        if (userBet <= 0)
+                        {
+                            Console.WriteLine("Please bet at least $1.");
+                        }
+
+                        if (userBet > moneyCount)
+                        {
+                            Console.WriteLine("You don't have that much money!");
+                        }
                     }
 
                     moneyCount = moneyCount - userBet;
