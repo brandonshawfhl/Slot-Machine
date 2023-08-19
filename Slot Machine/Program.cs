@@ -24,7 +24,6 @@ namespace Slot_Machine
                 // loop for running the slots until user runs out of money
                 while (moneyCount > 0)
                 {
-                    Console.Clear();
 
                     if (moneyCount <= 0)
                     {
@@ -43,6 +42,7 @@ namespace Slot_Machine
                     moneyCount = moneyCount - userBet;
                     int moneyBeforeSpin = moneyCount;
 
+                    Console.Clear();
                     int[,] slotMachine = new int[COLUMN_SIZE, ROW_SIZE];
 
                     for (int verticalNumber = 0; verticalNumber < COLUMN_SIZE; verticalNumber++)
