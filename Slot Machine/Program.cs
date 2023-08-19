@@ -33,18 +33,18 @@ namespace Slot_Machine
                     Console.WriteLine("How much money would you like to bet?");
                     userBet = Convert.ToInt32(Console.ReadLine());
 
-                    while (true)
+                    if (userBet <= 0)
                     {
-                        if (userBet <= 0)
-                        {
-                            Console.WriteLine("Please bet at least $1.");
-                        }
-
-                        if (userBet > moneyCount)
-                        {
-                            Console.WriteLine("You don't have that much money!");
-                        }
+                        Console.WriteLine("Please bet at least $1.");
+                        break;
                     }
+
+                    if (userBet > moneyCount)
+                    {
+                        Console.WriteLine("You don't have that much money!");
+                        break;
+                    }
+
                     moneyCount = moneyCount - userBet;
                     int moneyBeforeSpin = moneyCount;
 
