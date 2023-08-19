@@ -11,6 +11,7 @@ namespace Slot_Machine
         const char USER_YES_CHOICE = 'Y';
         static void Main(string[] args)
         {
+            char playAgain = USER_YES_CHOICE;
             int moneyCount = 100;
             if (moneyCount <= 0)
             {
@@ -82,6 +83,10 @@ namespace Slot_Machine
             moneyCount = moneyCount + userWinnings;
 
             Console.WriteLine("Sorry. Not this time!");
+
+            Console.WriteLine("\n");
+            Console.WriteLine($"Would you like to play again?({USER_YES_CHOICE} or press any other key to exit the program)\n");
+            playAgain = Char.ToUpper(Console.ReadKey(true).KeyChar);
         }
     }
 }
