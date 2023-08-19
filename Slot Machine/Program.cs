@@ -8,9 +8,15 @@ namespace Slot_Machine
         const int COLUMN_SIZE = 3;
         const int ROW_SIZE = 3;
         const int RANDOM_MAX = 10;
+        const char USER_YES_CHOICE = 'Y';
         static void Main(string[] args)
         {
             int moneyCount = 100;
+            if (moneyCount <= 0)
+            {
+                Console.WriteLine("Sorry it looks like your are flat broke! You lose!");
+            }
+
             Console.WriteLine("Welcome to Virtual Slot Machine!");
             Console.WriteLine("Play to win big!");
             Console.WriteLine($"You have ${moneyCount} left to bet.\n");
