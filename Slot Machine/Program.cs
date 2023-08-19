@@ -16,10 +16,14 @@ namespace Slot_Machine
 
             int userBet = 0;
             int userWinnings = userBet * 3;
+            //loop for playing the game more than once
             do
             {
             Console.WriteLine("Welcome to Virtual Slot Machine!");
             Console.WriteLine("Play to win big!");
+                // loop for running the slots until user runs out of money
+                while (moneyCount > 0)
+                {
             Console.Clear();
                 
             if (moneyCount <= 0)
@@ -87,6 +91,7 @@ namespace Slot_Machine
                 moneyCount = moneyCount + userWinnings;
 
                 Console.WriteLine("Sorry. Not this time!");
+                }
 
                 Console.WriteLine("\n");
                 Console.WriteLine($"Would you like to play again?({USER_YES_CHOICE} or press any other key to exit the program)\n");
