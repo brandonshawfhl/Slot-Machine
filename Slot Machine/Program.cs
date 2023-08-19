@@ -54,17 +54,7 @@ namespace Slot_Machine
                 }
             }
 
-            if (middleLine[0] == middleLine[1] && middleLine[1] == middleLine[2])
-            {
-                Console.WriteLine("Congratulations! You won big!");
-                moneyCount = moneyCount + WINNINGS;
-            }
-
-            if (bottomLine[0] == bottomLine[1] && bottomLine[1] == bottomLine[2])
-            {
-                Console.WriteLine("Congratulations! You won big!");
-                moneyCount = moneyCount + WINNINGS;
-            }
+           
 
             Console.WriteLine("Sorry. Not this time!");
         }
