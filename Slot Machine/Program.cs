@@ -53,6 +53,19 @@ namespace Slot_Machine
                     moneyCount = moneyCount + userWinnings;
                 }
             }
+            
+            for (int columnNumber = 0; columnNumber < COLUMN_SIZE; columnNumber++)
+            {
+                for (int rowNumber = columnNumber; rowNumber < ROW_SIZE; rowNumber++)
+                {
+                    if (slotMachine[rowNumber, columnNumber] != slotMachine[rowNumber + 1, columnNumber])
+                    {
+                        break;
+                    }
+                    Console.WriteLine($"Congratulations! Column {columnNumber} was a winner for you!");
+                    moneyCount = moneyCount + userWinnings;
+                }
+            }
 
            
 
