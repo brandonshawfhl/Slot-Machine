@@ -14,13 +14,14 @@ namespace Slot_Machine
             char playAgain = USER_YES_CHOICE;
             int moneyCount = 100;
 
-            Console.WriteLine("Welcome to Virtual Slot Machine!");
-            Console.WriteLine("Play to win big!");
             int userBet = 0;
             int userWinnings = userBet * 3;
             do
             {
+            Console.WriteLine("Welcome to Virtual Slot Machine!");
+            Console.WriteLine("Play to win big!");
             Console.Clear();
+                
             if (moneyCount <= 0)
             {
                 Console.WriteLine("Sorry it looks like your are flat broke! You lose!");
