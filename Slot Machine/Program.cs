@@ -69,10 +69,11 @@ namespace Slot_Machine
 
             for (int diagonalNumber = 0; diagonalNumber < COLUMN_SIZE; diagonalNumber++)
             {
-                if (slotMachine[diagonalNumber, diagonalNumber] != slotMachine[diagonalNumber + 1, diagnol])
-            }    
-
-           
+                if (slotMachine[diagonalNumber, diagonalNumber] != slotMachine[diagonalNumber + 1, diagonalNumber + 1])
+                    break;
+            }
+            Console.WriteLine($"Congratulations! A diagonal was a winner for you!");
+            moneyCount = moneyCount + userWinnings;
 
             Console.WriteLine("Sorry. Not this time!");
         }
