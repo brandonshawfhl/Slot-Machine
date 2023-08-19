@@ -17,6 +17,7 @@ namespace Slot_Machine
             Console.WriteLine($"You have ${moneyCount} left to bet.\n");
             Console.WriteLine("How much money would you like to bet?");
             int userBet = 0;
+            int userWinnings = userBet * 3;
             while (true)
             {
                 userBet = Convert.ToInt32(Console.ReadLine());
@@ -41,8 +42,13 @@ namespace Slot_Machine
             Console.WriteLine("\t" + slotMachine[1, 0] + slotMachine[1, 1] + slotMachine[1, 2]);
             Console.WriteLine("\t" + slotMachine[2, 0] + slotMachine[2, 1] + slotMachine[2, 2]);
 
-            if (topLine[0] == topLine[1] && topLine[1] == topLine[2])
+            //Comparison for winning or losing first row
+            for (int columnNumber = 0; columnNumber < COLUMN_SIZE; columnNumber++)
             {
+                if (slotMachine[columnNumber, 0] != slotMachine[columnNumber + 1, 0])
+                {
+                    break;
+                }
                 Console.WriteLine("Congratulations! You won big!");
                 moneyCount = moneyCount + WINNINGS;
             }
