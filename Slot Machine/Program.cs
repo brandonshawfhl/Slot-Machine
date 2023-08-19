@@ -53,7 +53,7 @@ namespace Slot_Machine
                     moneyCount = moneyCount + userWinnings;
                 }
             }
-            
+
             for (int columnNumber = 0; columnNumber < COLUMN_SIZE; columnNumber++)
             {
                 for (int rowNumber = columnNumber; rowNumber < ROW_SIZE; rowNumber++)
@@ -66,6 +66,11 @@ namespace Slot_Machine
                     moneyCount = moneyCount + userWinnings;
                 }
             }
+
+            for (int diagonalNumber = 0; diagonalNumber < COLUMN_SIZE; diagonalNumber++)
+            {
+                if (slotMachine[diagonalNumber, diagonalNumber] != slotMachine[diagonalNumber + 1, diagnol])
+            }    
 
            
 
