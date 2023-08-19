@@ -19,7 +19,7 @@ namespace Slot_Machine
             int userBet = 0;
             while (true)
             {
-            userBet = Convert.ToInt32(Console.ReadLine());
+                userBet = Convert.ToInt32(Console.ReadLine());
                 if (userBet <= 0)
                 {
                     Console.WriteLine("Please bet at least $1.");
@@ -33,22 +33,13 @@ namespace Slot_Machine
             {
                 for (int horizontalNumber = 0; horizontalNumber < ROW_SIZE; horizontalNumber++)
                 {
-                slotMachine[verticalNumber, horizontalNumber] = rng.Next(0, RANDOM_MAX);
+                    slotMachine[verticalNumber, horizontalNumber] = rng.Next(0, RANDOM_MAX);
                 }
             }
 
-            Console.Write("\t");
-            Console.Write(slotMachine[0, 0]);
-            Console.Write(topLine[1]);
-            Console.WriteLine(topLine[2]);
-            Console.Write("\t");
-            Console.Write(middleLine[0]);
-            Console.Write(middleLine[1]);
-            Console.WriteLine(middleLine[2]);
-            Console.Write("\t");
-            Console.Write(bottomLine[0]);
-            Console.Write(bottomLine[1]);
-            Console.WriteLine(bottomLine[2]);
+            Console.WriteLine("\t" + slotMachine[0, 0] + slotMachine[0, 1] + slotMachine[0, 2]);
+            Console.WriteLine("\t" + slotMachine[1, 0] + slotMachine[1, 1] + slotMachine[1, 2]);
+            Console.WriteLine("\t" + slotMachine[2, 0] + slotMachine[2, 1] + slotMachine[2, 2]);
 
             if (topLine[0] == topLine[1] && topLine[1] == topLine[2])
             {
