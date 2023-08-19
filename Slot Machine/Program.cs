@@ -11,23 +11,22 @@ namespace Slot_Machine
         const char USER_YES_CHOICE = 'Y';
         static void Main(string[] args)
         {
-            Console.Clear();
             char playAgain = USER_YES_CHOICE;
             int moneyCount = 100;
-            if (moneyCount <= 0)
-            {
-                Console.WriteLine("Sorry it looks like your are flat broke! You lose!");
-            }
 
             Console.WriteLine("Welcome to Virtual Slot Machine!");
             Console.WriteLine("Play to win big!");
-            Console.WriteLine($"You have ${moneyCount} left to bet.\n");
-            Console.WriteLine("How much money would you like to bet?");
             int userBet = 0;
             int userWinnings = userBet * 3;
             do
             {
-
+            Console.Clear();
+            if (moneyCount <= 0)
+            {
+                Console.WriteLine("Sorry it looks like your are flat broke! You lose!");
+            }
+            Console.WriteLine($"You have ${moneyCount} left to bet.\n");
+            Console.WriteLine("How much money would you like to bet?");
                 while (true)
                 {
                     userBet = Convert.ToInt32(Console.ReadLine());
