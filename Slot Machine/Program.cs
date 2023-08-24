@@ -5,8 +5,8 @@ namespace Slot_Machine
     internal class Program
     {
         public static readonly Random rng = new Random();
-        const int COLUMN_SIZE = 3;
-        const int ROW_SIZE = 3;
+        const int ROW_SIZE = 2;
+        const int COLUMN_SIZE = 2;
         const int RANDOM_MAX = 10;
         const char USER_YES_CHOICE = 'Y';
         static void Main(string[] args)
@@ -14,7 +14,7 @@ namespace Slot_Machine
             char playAgain = USER_YES_CHOICE;
             int moneyCount = 100;
 
-            int userBet = 0;
+            int userBet = 1;
             int userWinnings = userBet * 3;
             //loop for playing the game more than once
             do
@@ -31,14 +31,14 @@ namespace Slot_Machine
                         break;
                     }
 
-                    bool betIsNotValid = userBet > moneyCount || userBet < 0;
-                    do
+                    bool betIsNotValid = userBet > moneyCount || userBet <= 0;
+                    while (betIsNotValid)
                     {
                         Console.WriteLine($"You have ${moneyCount} left to bet.\n");
                         Console.WriteLine("How much money would you like to bet?");
                         userBet = Convert.ToInt32(Console.ReadLine());
 
-                        if (userBet < 0)
+                        if (userBet <= 0)
                         {
                             Console.WriteLine("Please bet at least $1.\n");
                         }
@@ -47,17 +47,17 @@ namespace Slot_Machine
                         {
                             Console.WriteLine("You don't have that much money!\n");
                         }
-                    } while (betIsNotValid);
+                    }
 
                     moneyCount = moneyCount - userBet;
                     int moneyBeforeSpin = moneyCount;
 
                     Console.Clear();
-                    int[,] slotMachine = new int[COLUMN_SIZE, ROW_SIZE];
+                    int[,] slotMachine = new int[ROW_SIZE, COLUMN_SIZE];
 
-                    for (int verticalNumber = 0; verticalNumber < COLUMN_SIZE; verticalNumber++)
+                    for (int verticalNumber = 0; verticalNumber <= ROW_SIZE; verticalNumber++)
                     {
-                        for (int horizontalNumber = 0; horizontalNumber < ROW_SIZE; horizontalNumber++)
+                        for (int horizontalNumber = 0; horizontalNumber <= COLUMN_SIZE; horizontalNumber++)
                         {
                             slotMachine[verticalNumber, horizontalNumber] = rng.Next(0, RANDOM_MAX);
                         }
@@ -67,11 +67,11 @@ namespace Slot_Machine
                     Console.WriteLine("\t" + slotMachine[1, 0] + slotMachine[1, 1] + slotMachine[1, 2]);
                     Console.WriteLine("\t" + slotMachine[2, 0] + slotMachine[2, 1] + slotMachine[2, 2]);
 
-                    for (int rowNumber = 0; rowNumber < ROW_SIZE; rowNumber++)
+                    for (int columnNumber = 0; columnNumber <= COLUMN_SIZE; columnNumber++)
                     {
-                        for (int columnNumber = rowNumber; columnNumber < COLUMN_SIZE; columnNumber++)
+                        for (int rowNumber = columnNumber; rowNumber <= ROW_SIZE; rowNumber++)
                         {
-                            if (slotMachine[columnNumber, rowNumber] != slotMachine[columnNumber + 1, rowNumber])
+                            if (slotMachine[rowNumber, rowNumber] != slotMachine[rowNumber + 1, rowNumber])
                             {
                                 break;
                             }
@@ -80,11 +80,11 @@ namespace Slot_Machine
                         }
                     }
 
-                    for (int columnNumber = 0; columnNumber < COLUMN_SIZE; columnNumber++)
+                    for (int rowNumber = 0; rowNumber <= ROW_SIZE; rowNumber++)
                     {
-                        for (int rowNumber = columnNumber; rowNumber < ROW_SIZE; rowNumber++)
+                        for (int columnNumber = rowNumber; columnNumber <= COLUMN_SIZE; columnNumber++)
                         {
-                            if (slotMachine[rowNumber, columnNumber] != slotMachine[rowNumber + 1, columnNumber])
+                            if (slotMachine[columnNumber, columnNumber] != slotMachine[columnNumber + 1, columnNumber])
                             {
                                 break;
                             }
@@ -93,7 +93,7 @@ namespace Slot_Machine
                         }
                     }
 
-                    for (int diagonalNumber = 0; diagonalNumber < COLUMN_SIZE; diagonalNumber++)
+                    for (int diagonalNumber = 0; diagonalNumber < ROW_SIZE; diagonalNumber++)
                     {
                         if (slotMachine[diagonalNumber, diagonalNumber] != slotMachine[diagonalNumber + 1, diagonalNumber + 1])
                             break;
