@@ -5,8 +5,10 @@ namespace Slot_Machine
     internal class Program
     {
         public static readonly Random rng = new Random();
-        const int ROW_SIZE = 2;
-        const int COLUMN_SIZE = 2;
+        const int ROW_SIZE = 3;
+        const int COLUMN_SIZE = 3;
+        const int ROW_NUMBER = 2;
+        const int COLUMN_NUMBER = 2;
         const int RANDOM_MAX = 10;
         const char USER_YES_CHOICE = 'Y';
         static void Main(string[] args)
@@ -55,9 +57,9 @@ namespace Slot_Machine
                     Console.Clear();
                     int[,] slotMachine = new int[ROW_SIZE, COLUMN_SIZE];
 
-                    for (int verticalNumber = 0; verticalNumber <= ROW_SIZE; verticalNumber++)
+                    for (int verticalNumber = 0; verticalNumber <= ROW_NUMBER; verticalNumber++)
                     {
-                        for (int horizontalNumber = 0; horizontalNumber <= COLUMN_SIZE; horizontalNumber++)
+                        for (int horizontalNumber = 0; horizontalNumber <= COLUMN_NUMBER; horizontalNumber++)
                         {
                             slotMachine[verticalNumber, horizontalNumber] = rng.Next(0, RANDOM_MAX);
                         }
@@ -67,9 +69,9 @@ namespace Slot_Machine
                     Console.WriteLine("\t" + slotMachine[1, 0] + slotMachine[1, 1] + slotMachine[1, 2]);
                     Console.WriteLine("\t" + slotMachine[2, 0] + slotMachine[2, 1] + slotMachine[2, 2]);
 
-                    for (int columnNumber = 0; columnNumber <= COLUMN_SIZE; columnNumber++)
+                    for (int columnNumber = 0; columnNumber <= COLUMN_NUMBER; columnNumber++)
                     {
-                        for (int rowNumber = columnNumber; rowNumber <= ROW_SIZE; rowNumber++)
+                        for (int rowNumber = columnNumber; rowNumber <= ROW_NUMBER; rowNumber++)
                         {
                             if (slotMachine[rowNumber, rowNumber] != slotMachine[rowNumber + 1, rowNumber])
                             {
@@ -80,9 +82,9 @@ namespace Slot_Machine
                         }
                     }
 
-                    for (int rowNumber = 0; rowNumber <= ROW_SIZE; rowNumber++)
+                    for (int rowNumber = 0; rowNumber <= ROW_NUMBER; rowNumber++)
                     {
-                        for (int columnNumber = rowNumber; columnNumber <= COLUMN_SIZE; columnNumber++)
+                        for (int columnNumber = rowNumber; columnNumber <= COLUMN_NUMBER; columnNumber++)
                         {
                             if (slotMachine[columnNumber, columnNumber] != slotMachine[columnNumber + 1, columnNumber])
                             {
@@ -93,7 +95,7 @@ namespace Slot_Machine
                         }
                     }
 
-                    for (int diagonalNumber = 0; diagonalNumber < ROW_SIZE; diagonalNumber++)
+                    for (int diagonalNumber = 0; diagonalNumber < ROW_NUMBER; diagonalNumber++)
                     {
                         if (slotMachine[diagonalNumber, diagonalNumber] != slotMachine[diagonalNumber + 1, diagonalNumber + 1])
                             break;
