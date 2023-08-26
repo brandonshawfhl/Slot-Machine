@@ -84,9 +84,9 @@ namespace Slot_Machine
 
                     for (int rowNumber = 0; rowNumber <= ROW_NUMBER; rowNumber++)
                     {
-                        for (int columnNumber = rowNumber; columnNumber <= COLUMN_NUMBER; columnNumber++)
+                        for (int columnNumber = 0; columnNumber <= COLUMN_NUMBER; columnNumber++)
                         {
-                            if (slotMachine[rowNumber, columnNumber] != slotMachine[rowNumber + 1, columnNumber])
+                            if (slotMachine[rowNumber, 0] != slotMachine[rowNumber, columnNumber])
                             {
                                 break;
                             }
