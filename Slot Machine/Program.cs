@@ -59,15 +59,19 @@ namespace Slot_Machine
 
                     for (int verticalNumber = 0; verticalNumber <= ROW_NUMBER; verticalNumber++)
                     {
+                        Console.Write("\n\t");
+
                         for (int horizontalNumber = 0; horizontalNumber <= COLUMN_NUMBER; horizontalNumber++)
                         {
                             slotMachine[verticalNumber, horizontalNumber] = rng.Next(0, RANDOM_MAX);
+                            Console.Write(slotMachine[verticalNumber, horizontalNumber]);
                         }
                     }
 
-                    Console.WriteLine("\t" + slotMachine[0, 0] + slotMachine[0, 1] + slotMachine[0, 2]);
-                    Console.WriteLine("\t" + slotMachine[1, 0] + slotMachine[1, 1] + slotMachine[1, 2]);
-                    Console.WriteLine("\t" + slotMachine[2, 0] + slotMachine[2, 1] + slotMachine[2, 2]);
+
+                    //Console.WriteLine("\t" + slotMachine[0, 0] + slotMachine[0, 1] + slotMachine[0, 2]);
+                    //Console.WriteLine("\t" + slotMachine[1, 0] + slotMachine[1, 1] + slotMachine[1, 2]);
+                    //Console.WriteLine("\t" + slotMachine[2, 0] + slotMachine[2, 1] + slotMachine[2, 2]);
 
                     for (int columnNumber = 0; columnNumber <= COLUMN_NUMBER; columnNumber++)
                     {
