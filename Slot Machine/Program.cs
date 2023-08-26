@@ -71,9 +71,9 @@ namespace Slot_Machine
 
                     for (int columnNumber = 0; columnNumber <= COLUMN_NUMBER; columnNumber++)
                     {
-                        for (int rowNumber = columnNumber; rowNumber <= ROW_NUMBER; rowNumber++)
+                        for (int rowNumber = 0; rowNumber <= ROW_NUMBER; rowNumber++)
                         {
-                            if (slotMachine[rowNumber, rowNumber] != slotMachine[rowNumber + 1, rowNumber])
+                            if (slotMachine[0, columnNumber] != slotMachine[rowNumber, columnNumber])
                             {
                                 break;
                             }
@@ -86,7 +86,7 @@ namespace Slot_Machine
                     {
                         for (int columnNumber = rowNumber; columnNumber <= COLUMN_NUMBER; columnNumber++)
                         {
-                            if (slotMachine[columnNumber, columnNumber] != slotMachine[columnNumber + 1, columnNumber])
+                            if (slotMachine[rowNumber, columnNumber] != slotMachine[rowNumber + 1, columnNumber])
                             {
                                 break;
                             }
