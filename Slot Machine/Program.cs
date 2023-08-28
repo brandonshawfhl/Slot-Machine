@@ -17,7 +17,7 @@ namespace Slot_Machine
             int moneyCount = 100;
 
             int userBet = 1;
-            int userWinnings = userBet * 3;
+            int userWinnings = userBet;
             //loop for playing the game more than once
             do
             {
@@ -33,23 +33,20 @@ namespace Slot_Machine
                         break;
                     }
 
-                    bool betIsNotValid = userBet > moneyCount || userBet <= 0;
-                    while (betIsNotValid)
+                    Console.WriteLine($"You have ${moneyCount} left to bet.\n");
+                    Console.WriteLine("How much money would you like to bet?");
+                    userBet = Convert.ToInt32(Console.ReadLine());
+
+                    if (userBet <= 0)
                     {
-                        Console.WriteLine($"You have ${moneyCount} left to bet.\n");
-                        Console.WriteLine("How much money would you like to bet?");
-                        userBet = Convert.ToInt32(Console.ReadLine());
-
-                        if (userBet <= 0)
-                        {
-                            Console.WriteLine("Please bet at least $1.\n");
-                        }
-
-                        if (userBet > moneyCount)
-                        {
-                            Console.WriteLine("You don't have that much money!\n");
-                        }
+                        Console.WriteLine("Please bet at least $1.\n");
                     }
+
+                    if (userBet > moneyCount)
+                    {
+                        Console.WriteLine("You don't have that much money!\n");
+                    }
+
 
                     moneyCount = moneyCount - userBet;
                     int moneyBeforeSpin = moneyCount;
@@ -67,11 +64,6 @@ namespace Slot_Machine
                             Console.Write(slotMachine[verticalNumber, horizontalNumber]);
                         }
                     }
-
-
-                    //Console.WriteLine("\t" + slotMachine[0, 0] + slotMachine[0, 1] + slotMachine[0, 2]);
-                    //Console.WriteLine("\t" + slotMachine[1, 0] + slotMachine[1, 1] + slotMachine[1, 2]);
-                    //Console.WriteLine("\t" + slotMachine[2, 0] + slotMachine[2, 1] + slotMachine[2, 2]);
 
                     for (int columnNumber = 0; columnNumber <= COLUMN_NUMBER; columnNumber++)
                     {
