@@ -34,7 +34,7 @@ namespace Slot_Machine
                     }
 
                     bool betIsNotValid = (userBet <= 0 || userBet > moneyCount);
-                    while (betIsNotValid)
+                    while (betIsNotValid == true)
                     {
                         Console.WriteLine($"You have ${moneyCount} left to bet.\n");
                         Console.WriteLine("How much money would you like to bet?");
@@ -48,6 +48,11 @@ namespace Slot_Machine
                         if (userBet > moneyCount)
                         {
                             Console.WriteLine("You don't have that much money!\n");
+                        }
+
+                        else
+                        {
+                            betIsNotValid = false;
                         }
                     }
 
