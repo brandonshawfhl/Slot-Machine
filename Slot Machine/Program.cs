@@ -33,18 +33,22 @@ namespace Slot_Machine
                         break;
                     }
 
-                    Console.WriteLine($"You have ${moneyCount} left to bet.\n");
-                    Console.WriteLine("How much money would you like to bet?");
-                    userBet = Convert.ToInt32(Console.ReadLine());
-
-                    if (userBet <= 0)
+                    bool betIsNotValid = (userBet <= 0 || userBet > moneyCount);
+                    while (betIsNotValid)
                     {
-                        Console.WriteLine("Please bet at least $1.\n");
-                    }
+                        Console.WriteLine($"You have ${moneyCount} left to bet.\n");
+                        Console.WriteLine("How much money would you like to bet?");
+                        userBet = Convert.ToInt32(Console.ReadLine());
 
-                    if (userBet > moneyCount)
-                    {
-                        Console.WriteLine("You don't have that much money!\n");
+                        if (userBet <= 0)
+                        {
+                            Console.WriteLine("Please bet at least $1.\n");
+                        }
+
+                        if (userBet > moneyCount)
+                        {
+                            Console.WriteLine("You don't have that much money!\n");
+                        }
                     }
 
 
