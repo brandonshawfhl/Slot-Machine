@@ -16,7 +16,7 @@ namespace Slot_Machine
             char playAgain = USER_YES_CHOICE;
             int moneyCount = 100;
 
-            int userBet = 1;
+            int userBet = 0;
             int userWinnings = userBet;
             //loop for playing the game more than once
             do
@@ -26,13 +26,6 @@ namespace Slot_Machine
                 // loop for running the slots until user runs out of money
                 while (moneyCount > 0)
                 {
-
-                    if (moneyCount <= 0)
-                    {
-                        Console.WriteLine("Sorry it looks like your are flat broke! You lose!");
-                        break;
-                    }
-
                     Console.WriteLine($"You have ${moneyCount} left to bet.\n");
                     Console.WriteLine("How much money would you like to bet?");
 
@@ -113,6 +106,12 @@ namespace Slot_Machine
                     {
                         Console.WriteLine("Sorry. Not this time!");
                     }
+                }
+
+                if (moneyCount <= 0)
+                {
+                    Console.WriteLine("Sorry it looks like your are flat broke! You lose!");
+                    break;
                 }
 
                 Console.WriteLine("\n");
