@@ -33,11 +33,12 @@ namespace Slot_Machine
                         break;
                     }
 
+                    Console.WriteLine($"You have ${moneyCount} left to bet.\n");
+                    Console.WriteLine("How much money would you like to bet?");
+
                     bool betIsNotValid = (userBet <= 0 || userBet > moneyCount);
-                    while (betIsNotValid == true)
+                    do
                     {
-                        Console.WriteLine($"You have ${moneyCount} left to bet.\n");
-                        Console.WriteLine("How much money would you like to bet?");
                         userBet = Convert.ToInt32(Console.ReadLine());
 
                         if (userBet <= 0)
@@ -55,7 +56,7 @@ namespace Slot_Machine
                             betIsNotValid = false;
                         }
                     }
-
+                    while (betIsNotValid == true);
 
                     moneyCount = moneyCount - userBet;
                     int moneyBeforeSpin = moneyCount;
