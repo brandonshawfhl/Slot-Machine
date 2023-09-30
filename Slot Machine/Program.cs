@@ -79,9 +79,10 @@ namespace Slot_Machine
                     {
                         for (int rowNumber = 0; rowNumber <= ROW_NUMBER; rowNumber++)
                         {
+                            bool winningLine = true;
                             if (slotMachine[0, columnNumber] != slotMachine[rowNumber, columnNumber])
                             {
-                                break;
+                                winningLine = false;
                             }
                             Console.WriteLine($"Congratulations! Row {rowNumber} was a winner for you!");
                             moneyCount = moneyCount + userWinnings;
