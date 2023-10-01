@@ -79,13 +79,18 @@ namespace Slot_Machine
                     {
                         for (int rowNumber = 0; rowNumber <= ROW_NUMBER; rowNumber++)
                         {
-                            bool winningLine = true;
-                            if (slotMachine[0, columnNumber] != slotMachine[rowNumber, columnNumber])
+                            bool winningLine = false;
+                            if (rowNumber > 0 && slotMachine[0, columnNumber] == slotMachine[rowNumber, columnNumber])
                             {
-                                winningLine = false;
+                                winningLine = true;
                             }
-                            Console.WriteLine($"Congratulations! Row {rowNumber} was a winner for you!");
-                            moneyCount = moneyCount + userWinnings;
+
+                            if (winningLine == true)
+                            {
+                                Console.WriteLine($"Congratulations! Row {rowNumber} was a winner for you!");
+                                moneyCount = moneyCount + userWinnings;
+                                break;
+                            }
                         }
                     }
 
