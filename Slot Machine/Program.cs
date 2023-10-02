@@ -77,10 +77,10 @@ namespace Slot_Machine
 
                     for (int columnNumber = 0; columnNumber <= COLUMN_NUMBER; columnNumber++)
                     {
-                        for (int rowNumber = 0; rowNumber <= ROW_NUMBER; rowNumber++)
+                        for (int rowNumber = 1; rowNumber <= ROW_NUMBER; rowNumber++)
                         {
                             bool winningLine = false;
-                            if (rowNumber > 0 && slotMachine[0, columnNumber] == slotMachine[rowNumber, columnNumber])
+                            if (slotMachine[0, columnNumber] == slotMachine[rowNumber, columnNumber])
                             {
                                 winningLine = true;
                             }
