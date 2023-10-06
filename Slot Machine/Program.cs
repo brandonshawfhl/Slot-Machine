@@ -85,7 +85,7 @@ namespace Slot_Machine
 
                             if (winningLine == true)
                             {
-                                Console.WriteLine($"Congratulations! Row {rowNumber} was a winner for you!");
+                                Console.WriteLine($"Congratulations! Row {rowNumber + 1} was a winner for you!");
                                 moneyCount = moneyCount + userWinnings;
                                 break;
                             }
