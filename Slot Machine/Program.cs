@@ -68,11 +68,12 @@ namespace Slot_Machine
                         }
                     }
 
+                    bool winningLine = false;
+
                     for (int columnNumber = 0; columnNumber <= COLUMN_NUMBER; columnNumber++)
                     {
                         for (int rowNumber = 1; rowNumber <= ROW_NUMBER; rowNumber++)
                         {
-                            bool winningLine = false;
                             if (slotMachine[0, columnNumber] == slotMachine[rowNumber, columnNumber])
                             {
                                 winningLine = true;
@@ -85,7 +86,8 @@ namespace Slot_Machine
 
                             if (winningLine == true)
                             {
-                                Console.WriteLine($"Congratulations! Row {rowNumber + 1} was a winner for you!");
+                                Console.WriteLine("\n\n");
+                                Console.WriteLine($"Congratulations! You matched a row!");
                                 moneyCount = moneyCount + userWinnings;
                                 break;
                             }
