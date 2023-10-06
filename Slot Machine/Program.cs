@@ -84,16 +84,16 @@ namespace Slot_Machine
                                 winningLine = false;
                             }
 
-                            if (winningLine == true)
-                            {
-                                Console.WriteLine("\n\n");
-                                Console.WriteLine($"Congratulations! You matched a row!");
-                                moneyCount = moneyCount + userWinnings;
-                                break;
-                            }
                         }
                     }
 
+                    if (winningLine == true)
+                    {
+                        Console.WriteLine("\n\n");
+                        Console.WriteLine($"Congratulations! You matched a row!");
+                        moneyCount = moneyCount + userWinnings;
+                        break;
+                    }
                     for (int rowNumber = 0; rowNumber <= ROW_NUMBER; rowNumber++)
                     {
                         for (int columnNumber = 0; columnNumber <= COLUMN_NUMBER; columnNumber++)
