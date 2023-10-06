@@ -78,6 +78,11 @@ namespace Slot_Machine
                                 winningLine = true;
                             }
 
+                            if (slotMachine[0, columnNumber] != slotMachine[rowNumber, columnNumber])
+                            {
+                                winningLine = false;
+                            }
+
                             if (winningLine == true)
                             {
                                 Console.WriteLine($"Congratulations! Row {rowNumber} was a winner for you!");
