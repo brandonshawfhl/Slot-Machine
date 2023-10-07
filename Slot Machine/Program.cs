@@ -131,7 +131,7 @@ namespace Slot_Machine
                     {
                         for (int rowNumber = 1; rowNumber <= ROW_NUMBER; rowNumber++)
                         {
-                            if (slotMachine[, diagonalNumber] == slotMachine[diagonalNumber + 1, diagonalNumber + 1])
+                            if (slotMachine[0 , columnNumber] == slotMachine[rowNumber, columnNumber])
                             {
                                 winningDiagonal = true;
                             }
@@ -146,7 +146,8 @@ namespace Slot_Machine
 
                     if (winningDiagonal == true)
                     {
-                        Console.WriteLine($"Congratulations! A diagonal was a winner for you!");
+                        Console.WriteLine("\n\n");
+                        Console.WriteLine($"Congratulations! You matched a diagonal!");
                         moneyCount = moneyCount + userWinnings;
                     }
 
