@@ -9,6 +9,7 @@ namespace Slot_Machine
         const int COLUMN_SIZE = 3;
         const int ROW_NUMBER = 2;
         const int COLUMN_NUMBER = 2;
+        const int DIAGONAL_NUMBER = 2;
         const int RANDOM_MAX = 10;
         const char USER_YES_CHOICE = 'Y';
         static void Main(string[] args)
@@ -114,20 +115,35 @@ namespace Slot_Machine
                         moneyCount = moneyCount + userWinnings;
                     }
 
-                    //this section checks for matching diagonals
+                    //this section checks for the first way to match a diagonal (upper left to lower right)
                     bool winningFirstDiagonal = true;
 
-                    for (int diagonalNumber = 1; diagonalNumber <= COLUMN_NUMBER; diagonalNumber++)
+                    for (int diagonalNumber = 1; diagonalNumber <= DIAGONAL_NUMBER; diagonalNumber++)
                     {
-                       
-                            if (slotMachine[0, 0] != slotMachine[diagonalNumber, diagonalNumber])
-                            {
-                                winningFirstDiagonal = false;
-                                break;
-                            }
+
+                        if (slotMachine[0, 0] != slotMachine[diagonalNumber, diagonalNumber])
+                        {
+                            winningFirstDiagonal = false;
+                            break;
+                        }
                     }
 
-                    if (winningFirstDiagonal == true)
+                    //this section checks for the second way to match a diagonal (upper right to lower left)
+                    bool winningSecondDiagonal = true;
+
+                    for (int columnNumber = 1; columnNumber <= COLUMN_NUMBER; columnNumber++)
+                    {
+                        for (int rowNumber = 1; rowNumber <= 0; rowNumber--)
+                        {
+                            if (slotMachine[ROW_NUMBER, COLUMN_NUMBER] != slotMachine[rowNumber, columnNumber])
+                            {
+                                winningSecondDiagonal = false;
+                                break;
+                            }
+                        }
+                    }
+
+                    if (winningFirstDiagonal == true || winningSecondDiagonal == true)
                     {
                         Console.WriteLine("\n\n");
                         Console.WriteLine($"Congratulations! You matched a diagonal!");
