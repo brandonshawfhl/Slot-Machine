@@ -114,6 +114,7 @@ namespace Slot_Machine
                                 break;
                             }
                         }
+
                     }
 
                     if (winningColumn == true)
@@ -126,17 +127,20 @@ namespace Slot_Machine
                     //this section checks for matching diagonals
                     bool winningDiagonal = false;
 
-                    for (int diagonalNumber = 0; diagonalNumber < ROW_NUMBER; diagonalNumber++)
+                    for (int columnNumber = 0; columnNumber <= COLUMN_NUMBER; columnNumber++)
                     {
-                        if (slotMachine[diagonalNumber, diagonalNumber] == slotMachine[diagonalNumber + 1, diagonalNumber + 1])
+                        for (int rowNumber = 1; rowNumber <= ROW_NUMBER; rowNumber++)
                         {
-                            winningDiagonal = true;
-                        }
+                            if (slotMachine[, diagonalNumber] == slotMachine[diagonalNumber + 1, diagonalNumber + 1])
+                            {
+                                winningDiagonal = true;
+                            }
 
-                        else
-                        {
-                            winningDiagonal = false;
-                            break;
+                            else
+                            {
+                                winningDiagonal = false;
+                                break;
+                            }
                         }
                     }
 
