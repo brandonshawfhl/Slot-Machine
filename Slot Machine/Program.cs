@@ -113,7 +113,6 @@ namespace Slot_Machine
                                 winningColumn = false;
                                 break;
                             }
-
                         }
                     }
 
@@ -124,10 +123,20 @@ namespace Slot_Machine
                         moneyCount = moneyCount + userWinnings;
                     }
 
+                    bool winningDiagonal = false;
+
                     for (int diagonalNumber = 0; diagonalNumber < ROW_NUMBER; diagonalNumber++)
                     {
-                        if (slotMachine[diagonalNumber, diagonalNumber] != slotMachine[diagonalNumber + 1, diagonalNumber + 1])
+                        if (slotMachine[diagonalNumber, diagonalNumber] == slotMachine[diagonalNumber + 1, diagonalNumber + 1])
+                        {
+                            winningDiagonal = true;
+                        }
+
+                        else
+                        {
+                            winningDiagonal = false;
                             break;
+                        }
                     }
                     Console.WriteLine($"Congratulations! A diagonal was a winner for you!");
                     moneyCount = moneyCount + userWinnings;
