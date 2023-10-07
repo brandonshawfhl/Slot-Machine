@@ -69,18 +69,13 @@ namespace Slot_Machine
                     }
 
                     //this section checks for a matching row
-                    bool winningLine = false;
+                    bool winningLine = true;
 
                     for (int columnNumber = 0; columnNumber <= COLUMN_NUMBER; columnNumber++)
                     {
                         for (int rowNumber = 1; rowNumber <= ROW_NUMBER; rowNumber++)
                         {
-                            if (slotMachine[0, columnNumber] == slotMachine[rowNumber, columnNumber])
-                            {
-                                winningLine = true;
-                            }
-
-                            else
+                            if (slotMachine[0, columnNumber] != slotMachine[rowNumber, columnNumber])
                             {
                                 winningLine = false;
                                 break;
@@ -97,18 +92,13 @@ namespace Slot_Machine
                     }
 
                     //this section checks for a matching column
-                    bool winningColumn = false;
+                    bool winningColumn = true;
 
                     for (int rowNumber = 0; rowNumber <= ROW_NUMBER; rowNumber++)
                     {
                         for (int columnNumber = 1; columnNumber <= COLUMN_NUMBER; columnNumber++)
                         {
-                            if (slotMachine[rowNumber, 0] == slotMachine[rowNumber, columnNumber])
-                            {
-                                winningColumn = true;
-                            }
-
-                            else
+                            if (slotMachine[rowNumber, 0] != slotMachine[rowNumber, columnNumber])
                             {
                                 winningColumn = false;
                                 break;
@@ -125,18 +115,13 @@ namespace Slot_Machine
                     }
 
                     //this section checks for matching diagonals
-                    bool winningDiagonal = false;
+                    bool winningDiagonal = true;
 
                     for (int columnNumber = 0; columnNumber <= COLUMN_NUMBER; columnNumber++)
                     {
                         for (int rowNumber = 1; rowNumber <= ROW_NUMBER; rowNumber++)
                         {
-                            if (slotMachine[0 , columnNumber] == slotMachine[rowNumber, columnNumber])
-                            {
-                                winningDiagonal = true;
-                            }
-
-                            else
+                            if (slotMachine[0 , columnNumber] != slotMachine[rowNumber, columnNumber])
                             {
                                 winningDiagonal = false;
                                 break;
