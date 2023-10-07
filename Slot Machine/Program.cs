@@ -79,11 +79,10 @@ namespace Slot_Machine
                                 winningLine = true;
                             }
 
-                            if (slotMachine[0, columnNumber] != slotMachine[rowNumber, columnNumber])
+                            else
                             {
                                 winningLine = false;
                             }
-
                         }
                     }
 
@@ -94,6 +93,7 @@ namespace Slot_Machine
                         moneyCount = moneyCount + userWinnings;
                         break;
                     }
+
                     for (int rowNumber = 0; rowNumber <= ROW_NUMBER; rowNumber++)
                     {
                         for (int columnNumber = 0; columnNumber <= COLUMN_NUMBER; columnNumber++)
