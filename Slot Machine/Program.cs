@@ -95,12 +95,20 @@ namespace Slot_Machine
                         break;
                     }
 
+                    bool winningColumn = false;
+
                     for (int rowNumber = 0; rowNumber <= ROW_NUMBER; rowNumber++)
                     {
                         for (int columnNumber = 1; columnNumber <= COLUMN_NUMBER; columnNumber++)
                         {
-                            if (slotMachine[rowNumber, 0] != slotMachine[rowNumber, columnNumber])
+                            if (slotMachine[rowNumber, 0] == slotMachine[rowNumber, columnNumber])
                             {
+                                winningColumn = true;
+                            }
+
+                            else
+                            {
+                                winningColumn = false;
                                 break;
                             }
                             Console.WriteLine($"Congratulations! Column {columnNumber} was a winner for you!");
