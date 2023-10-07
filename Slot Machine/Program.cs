@@ -139,8 +139,12 @@ namespace Slot_Machine
                             break;
                         }
                     }
-                    Console.WriteLine($"Congratulations! A diagonal was a winner for you!");
-                    moneyCount = moneyCount + userWinnings;
+
+                    if (winningDiagonal == true)
+                    {
+                        Console.WriteLine($"Congratulations! A diagonal was a winner for you!");
+                        moneyCount = moneyCount + userWinnings;
+                    }
 
                     if (moneyCount == moneyBeforeSpin)
                     {
