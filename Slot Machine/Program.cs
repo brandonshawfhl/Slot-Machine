@@ -68,6 +68,7 @@ namespace Slot_Machine
                         }
                     }
 
+                    //this section checks for a matching row
                     bool winningLine = false;
 
                     for (int columnNumber = 0; columnNumber <= COLUMN_NUMBER; columnNumber++)
@@ -95,6 +96,7 @@ namespace Slot_Machine
                         break;
                     }
 
+                    //this section checks for a matching column
                     bool winningColumn = false;
 
                     for (int rowNumber = 0; rowNumber <= ROW_NUMBER; rowNumber++)
@@ -117,6 +119,7 @@ namespace Slot_Machine
 
                     if (winningColumn == true)
                     {
+                        Console.WriteLine("\n\n");
                         Console.WriteLine($"Congratulations! You matched a column!");
                         moneyCount = moneyCount + userWinnings;
                     }
