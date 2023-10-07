@@ -111,9 +111,14 @@ namespace Slot_Machine
                                 winningColumn = false;
                                 break;
                             }
-                            Console.WriteLine($"Congratulations! Column {columnNumber} was a winner for you!");
-                            moneyCount = moneyCount + userWinnings;
+
                         }
+                    }
+
+                    if (winningColumn == true)
+                    {
+                        Console.WriteLine($"Congratulations! You matched a column!");
+                        moneyCount = moneyCount + userWinnings;
                     }
 
                     for (int diagonalNumber = 0; diagonalNumber < ROW_NUMBER; diagonalNumber++)
