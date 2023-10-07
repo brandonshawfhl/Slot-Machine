@@ -123,6 +123,7 @@ namespace Slot_Machine
                         moneyCount = moneyCount + userWinnings;
                     }
 
+                    //this section checks for matching diagonals
                     bool winningDiagonal = false;
 
                     for (int diagonalNumber = 0; diagonalNumber < ROW_NUMBER; diagonalNumber++)
