@@ -115,21 +115,19 @@ namespace Slot_Machine
                     }
 
                     //this section checks for matching diagonals
-                    bool winningDiagonal = true;
+                    bool winningFirstDiagonal = true;
 
-                    for (int columnNumber = 0; columnNumber <= COLUMN_NUMBER; columnNumber++)
+                    for (int diagonalNumber = 1; diagonalNumber <= COLUMN_NUMBER; diagonalNumber++)
                     {
-                        for (int rowNumber = 1; rowNumber <= ROW_NUMBER; rowNumber++)
-                        {
-                            if (slotMachine[0 , columnNumber] != slotMachine[rowNumber, columnNumber])
+                       
+                            if (slotMachine[0, 0] != slotMachine[diagonalNumber, diagonalNumber])
                             {
-                                winningDiagonal = false;
+                                winningFirstDiagonal = false;
                                 break;
                             }
-                        }
                     }
 
-                    if (winningDiagonal == true)
+                    if (winningFirstDiagonal == true)
                     {
                         Console.WriteLine("\n\n");
                         Console.WriteLine($"Congratulations! You matched a diagonal!");
