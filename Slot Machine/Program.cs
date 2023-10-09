@@ -30,8 +30,8 @@ namespace Slot_Machine
                     Console.WriteLine($"You have ${moneyCount} left to bet.\n");
                     Console.WriteLine("How much money would you like to bet?");
 
-                    bool betIsNotValid = (userBet <= 0 || userBet > moneyCount);
-                    do
+                    bool betIsNotValid = true;
+                    while (betIsNotValid == true)
                     {
                         userBet = Convert.ToInt32(Console.ReadLine());
 
@@ -45,12 +45,11 @@ namespace Slot_Machine
                             Console.WriteLine("You don't have that much money!\n");
                         }
 
-                        else
+                        if (userBet > 0 && userBet < moneyCount)
                         {
                             betIsNotValid = false;
                         }
                     }
-                    while (betIsNotValid == true);
 
                     moneyCount = moneyCount - userBet;
                     int moneyBeforeSpin = moneyCount;
@@ -72,9 +71,9 @@ namespace Slot_Machine
                     //this section checks for a matching row
                     bool winningLine = true;
 
-                    for (int columnNumber = 0; columnNumber >= COLUMN_NUMBER; columnNumber++)
+                    for (int columnNumber = 0; columnNumber <= COLUMN_NUMBER; columnNumber++)
                     {
-                        for (int rowNumber = 1; rowNumber >= ROW_NUMBER; rowNumber++)
+                        for (int rowNumber = 1; rowNumber <= ROW_NUMBER; rowNumber++)
                         {
                             if (slotMachine[0, columnNumber] != slotMachine[rowNumber, columnNumber])
                             {
@@ -95,9 +94,9 @@ namespace Slot_Machine
                     //this section checks for a matching column
                     bool winningColumn = true;
 
-                    for (int rowNumber = 0; rowNumber >= ROW_NUMBER; rowNumber++)
+                    for (int rowNumber = 0; rowNumber <= ROW_NUMBER; rowNumber++)
                     {
-                        for (int columnNumber = 1; columnNumber >= COLUMN_NUMBER; columnNumber++)
+                        for (int columnNumber = 1; columnNumber <= COLUMN_NUMBER; columnNumber++)
                         {
                             if (slotMachine[rowNumber, 0] != slotMachine[rowNumber, columnNumber])
                             {
@@ -130,9 +129,9 @@ namespace Slot_Machine
                     //this section checks for the second way to match a diagonal (upper right to lower left)
                     bool winningSecondDiagonal = true;
 
-                    for (int rowNumber = 1; rowNumber >= ROW_NUMBER; rowNumber++)
+                    for (int rowNumber = 1; rowNumber <= ROW_NUMBER; rowNumber++)
                     {
-                        for (int columnNumber = 1; columnNumber <= 0; columnNumber--)
+                        for (int columnNumber = 1; columnNumber >= 0; columnNumber--)
                         {
                             if (slotMachine[0, COLUMN_NUMBER] != slotMachine[rowNumber, columnNumber])
                             {
@@ -149,7 +148,7 @@ namespace Slot_Machine
                         moneyCount = moneyCount + userWinnings;
                     }
 
-                    if (moneyCount == moneyBeforeSpin)
+                    if (moneyCount <= moneyBeforeSpin)
                     {
                         Console.WriteLine("Sorry. Not this time!");
                     }
