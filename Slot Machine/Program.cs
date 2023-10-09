@@ -72,9 +72,9 @@ namespace Slot_Machine
                     //this section checks for a matching row
                     bool winningLine = true;
 
-                    for (int columnNumber = 0; columnNumber <= COLUMN_NUMBER; columnNumber++)
+                    for (int columnNumber = 0; columnNumber >= COLUMN_NUMBER; columnNumber++)
                     {
-                        for (int rowNumber = 1; rowNumber <= ROW_NUMBER; rowNumber++)
+                        for (int rowNumber = 1; rowNumber >= ROW_NUMBER; rowNumber++)
                         {
                             if (slotMachine[0, columnNumber] != slotMachine[rowNumber, columnNumber])
                             {
@@ -95,9 +95,9 @@ namespace Slot_Machine
                     //this section checks for a matching column
                     bool winningColumn = true;
 
-                    for (int rowNumber = 0; rowNumber <= ROW_NUMBER; rowNumber++)
+                    for (int rowNumber = 0; rowNumber >= ROW_NUMBER; rowNumber++)
                     {
-                        for (int columnNumber = 1; columnNumber <= COLUMN_NUMBER; columnNumber++)
+                        for (int columnNumber = 1; columnNumber >= COLUMN_NUMBER; columnNumber++)
                         {
                             if (slotMachine[rowNumber, 0] != slotMachine[rowNumber, columnNumber])
                             {
@@ -130,9 +130,9 @@ namespace Slot_Machine
                     //this section checks for the second way to match a diagonal (upper right to lower left)
                     bool winningSecondDiagonal = true;
 
-                    for (int rowNumber = 1; rowNumber <= ROW_NUMBER; rowNumber++)
+                    for (int rowNumber = 1; rowNumber >= ROW_NUMBER; rowNumber++)
                     {
-                        for (int columnNumber = 1; columnNumber >= 0; columnNumber--)
+                        for (int columnNumber = 1; columnNumber <= 0; columnNumber--)
                         {
                             if (slotMachine[0, COLUMN_NUMBER] != slotMachine[rowNumber, columnNumber])
                             {
