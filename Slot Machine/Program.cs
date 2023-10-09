@@ -105,7 +105,6 @@ namespace Slot_Machine
                                 break;
                             }
                         }
-
                     }
 
                     if (winningColumn == true)
@@ -133,7 +132,7 @@ namespace Slot_Machine
 
                     for (int rowNumber = 1; rowNumber <= ROW_NUMBER; rowNumber++)
                     {
-                        for (int columnNumber = 1; columnNumber <= 0; columnNumber--)
+                        for (int columnNumber = 1; columnNumber >= 0; columnNumber--)
                         {
                             if (slotMachine[0, COLUMN_NUMBER] != slotMachine[rowNumber, columnNumber])
                             {
