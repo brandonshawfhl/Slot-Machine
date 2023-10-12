@@ -127,16 +127,13 @@ namespace Slot_Machine
                     //this section checks for the second way to match a diagonal (upper right to lower left)
                     bool winningSecondDiagonal = true;
 
-                    for (int rowNumber = 1; rowNumber <= ROW_SIZE; rowNumber++)
+                    for (int diagonalNumber = 1; diagonalNumber < ROW_SIZE; diagonalNumber++)
                     {
-                        for (int columnNumber = 1; columnNumber >= 0; columnNumber--)
-                        {
-                            if (slotMachine[0, (COLUMN_SIZE - 1)] != slotMachine[rowNumber, columnNumber])
+                            if (slotMachine[0, (ROW_SIZE - 1)] != slotMachine[diagonalNumber, ROW_SIZE - 1 - diagonalNumber])
                             {
                                 winningSecondDiagonal = false;
                                 break;
                             }
-                        }
                     }
 
                     if (winningFirstDiagonal == true || winningSecondDiagonal == true)
