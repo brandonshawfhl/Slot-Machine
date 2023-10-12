@@ -7,9 +7,7 @@ namespace Slot_Machine
         public static readonly Random rng = new Random();
         const int ROW_SIZE = 3;
         const int COLUMN_SIZE = 3;
-        const int ROW_NUMBER = 2;
-        const int COLUMN_NUMBER = 2;
-        const int DIAGONAL_NUMBER = 2;
+        const int DIAGONAL_SIZE = 3;
         const int RANDOM_MAX = 10;
         const char USER_YES_CHOICE = 'Y';
         static void Main(string[] args)
@@ -57,11 +55,11 @@ namespace Slot_Machine
                     Console.Clear();
                     int[,] slotMachine = new int[ROW_SIZE, COLUMN_SIZE];
 
-                    for (int verticalNumber = 0; verticalNumber <= ROW_NUMBER; verticalNumber++)
+                    for (int verticalNumber = 0; verticalNumber < ROW_SIZE; verticalNumber++)
                     {
                         Console.Write("\n\t");
 
-                        for (int horizontalNumber = 0; horizontalNumber <= COLUMN_NUMBER; horizontalNumber++)
+                        for (int horizontalNumber = 0; horizontalNumber < COLUMN_SIZE; horizontalNumber++)
                         {
                             slotMachine[verticalNumber, horizontalNumber] = rng.Next(0, RANDOM_MAX);
                             Console.Write(slotMachine[verticalNumber, horizontalNumber]);
@@ -71,9 +69,9 @@ namespace Slot_Machine
                     //this section checks for a matching row
                     bool winningLine = true;
 
-                    for (int columnNumber = 0; columnNumber <= COLUMN_NUMBER; columnNumber++)
+                    for (int columnNumber = 0; columnNumber < COLUMN_SIZE; columnNumber++)
                     {
-                        for (int rowNumber = 1; rowNumber <= ROW_NUMBER; rowNumber++)
+                        for (int rowNumber = 1; rowNumber < ROW_SIZE; rowNumber++)
                         {
                             if (slotMachine[0, columnNumber] != slotMachine[rowNumber, columnNumber])
                             {
@@ -94,9 +92,9 @@ namespace Slot_Machine
                     //this section checks for a matching column
                     bool winningColumn = true;
 
-                    for (int rowNumber = 0; rowNumber <= ROW_NUMBER; rowNumber++)
+                    for (int rowNumber = 0; rowNumber < ROW_SIZE; rowNumber++)
                     {
-                        for (int columnNumber = 1; columnNumber <= COLUMN_NUMBER; columnNumber++)
+                        for (int columnNumber = 1; columnNumber < COLUMN_SIZE; columnNumber++)
                         {
                             if (slotMachine[rowNumber, 0] != slotMachine[rowNumber, columnNumber])
                             {
@@ -116,7 +114,7 @@ namespace Slot_Machine
                     //this section checks for the first way to match a diagonal (upper left to lower right)
                     bool winningFirstDiagonal = true;
 
-                    for (int diagonalNumber = 1; diagonalNumber <= DIAGONAL_NUMBER; diagonalNumber++)
+                    for (int diagonalNumber = 1; diagonalNumber < DIAGONAL_SIZE; diagonalNumber++)
                     {
 
                         if (slotMachine[0, 0] != slotMachine[diagonalNumber, diagonalNumber])
@@ -129,11 +127,11 @@ namespace Slot_Machine
                     //this section checks for the second way to match a diagonal (upper right to lower left)
                     bool winningSecondDiagonal = true;
 
-                    for (int rowNumber = 1; rowNumber <= ROW_NUMBER; rowNumber++)
+                    for (int rowNumber = 1; rowNumber <= ROW_SIZE; rowNumber++)
                     {
                         for (int columnNumber = 1; columnNumber >= 0; columnNumber--)
                         {
-                            if (slotMachine[0, COLUMN_NUMBER] != slotMachine[rowNumber, columnNumber])
+                            if (slotMachine[0, (COLUMN_SIZE - 1)] != slotMachine[rowNumber, columnNumber])
                             {
                                 winningSecondDiagonal = false;
                                 break;
