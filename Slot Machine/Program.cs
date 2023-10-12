@@ -43,7 +43,7 @@ namespace Slot_Machine
                             Console.WriteLine("You don't have that much money!\n");
                         }
 
-                        if (userBet > 0 && userBet < moneyCount)
+                        if (userBet > 0 && userBet <= moneyCount)
                         {
                             betIsNotValid = false;
                         }
@@ -129,11 +129,11 @@ namespace Slot_Machine
 
                     for (int diagonalNumber = 1; diagonalNumber < ROW_SIZE; diagonalNumber++)
                     {
-                            if (slotMachine[0, (ROW_SIZE - 1)] != slotMachine[diagonalNumber, ROW_SIZE - 1 - diagonalNumber])
-                            {
-                                winningSecondDiagonal = false;
-                                break;
-                            }
+                        if (slotMachine[0, (ROW_SIZE - 1)] != slotMachine[diagonalNumber, ROW_SIZE - 1 - diagonalNumber])
+                        {
+                            winningSecondDiagonal = false;
+                            break;
+                        }
                     }
 
                     if (winningFirstDiagonal == true || winningSecondDiagonal == true)
@@ -143,18 +143,15 @@ namespace Slot_Machine
                         moneyCount = moneyCount + userWinnings;
                     }
 
-                    if (moneyCount <= moneyBeforeSpin)
+                    if (moneyCount < moneyBeforeSpin)
                     {
                         Console.WriteLine("Sorry. Not this time!");
                     }
                 }
 
-                if (moneyCount <= 0)
-                {
-                    Console.WriteLine("Sorry it looks like your are flat broke! You lose!");
-                    break;
-                }
-
+                Console.WriteLine("\n\n");
+                Console.WriteLine("Sorry it looks like your are flat broke! You lose!");
+                
                 Console.WriteLine("\n");
                 Console.WriteLine($"Would you like to play again?({USER_YES_CHOICE} or press any other key to exit the program)\n");
                 playAgain = Char.ToUpper(Console.ReadKey(true).KeyChar);
