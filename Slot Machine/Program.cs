@@ -24,12 +24,16 @@
                 while (moneyCount > 0)
                 {
                     Console.WriteLine($"You have ${moneyCount} left to bet.\n");
-                    Console.WriteLine("How much money would you like to bet?");
 
-                    bool betIsNotValid = true;
-                    while (betIsNotValid == true)
+                    while (true)
                     {
+                        Console.WriteLine("How much money would you like to bet?");
                         userBet = Convert.ToInt32(Console.ReadLine());
+
+                        if (userBet > 0 && userBet <= moneyCount)
+                        {
+                            break;
+                        }
 
                         if (userBet <= 0)
                         {
@@ -39,11 +43,6 @@
                         if (userBet > moneyCount)
                         {
                             Console.WriteLine("You don't have that much money!\n");
-                        }
-
-                        if (userBet > 0 && userBet <= moneyCount)
-                        {
-                            betIsNotValid = false;
                         }
                     }
 
@@ -149,7 +148,7 @@
 
                 Console.WriteLine("\n\n");
                 Console.WriteLine("Sorry it looks like your are flat broke! You lose!");
-                
+
                 Console.WriteLine("\n");
                 Console.WriteLine($"Would you like to play again?({USER_YES_CHOICE} or press any other key to exit the program)\n");
                 playAgain = Char.ToUpper(Console.ReadKey(true).KeyChar);
