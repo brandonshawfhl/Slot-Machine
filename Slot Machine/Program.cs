@@ -7,11 +7,12 @@
         const int COLUMN_SIZE = 3;
         const int DIAGONAL_SIZE = 3;
         const int RANDOM_MAX = 10;
+        const int STARTING_MONEY = 100;
         const char USER_YES_CHOICE = 'Y';
         static void Main(string[] args)
         {
             char playAgain = USER_YES_CHOICE;
-            int moneyCount = 100;
+            int moneyCount = STARTING_MONEY;
 
             int userBet = 0;
             int userWinnings = userBet;
