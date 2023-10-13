@@ -12,18 +12,19 @@
         static void Main(string[] args)
         {
             char playAgain = USER_YES_CHOICE;
-            int moneyCount = STARTING_MONEY;
-
             int userBet = 0;
-            int userWinnings = userBet;
+
             //loop for playing the game more than once
             do
             {
+                Console.Clear();
+                int moneyCount = STARTING_MONEY;
                 Console.WriteLine("Welcome to Virtual Slot Machine!");
                 Console.WriteLine("Play to win big!");
                 // loop for running the slots until user runs out of money
                 while (moneyCount > 0)
                 {
+                    Console.WriteLine("\n\n");
                     Console.WriteLine($"You have ${moneyCount} left to bet.\n");
 
                     while (true)
@@ -47,7 +48,7 @@
                         }
                     }
 
-                    moneyCount = moneyCount - userBet;
+                    moneyCount -= userBet;
                     int moneyBeforeSpin = moneyCount;
 
                     Console.Clear();
@@ -56,7 +57,6 @@
                     for (int verticalNumber = 0; verticalNumber < ROW_SIZE; verticalNumber++)
                     {
                         Console.Write("\n\t");
-
                         for (int horizontalNumber = 0; horizontalNumber < COLUMN_SIZE; horizontalNumber++)
                         {
                             slotMachine[verticalNumber, horizontalNumber] = rng.Next(0, RANDOM_MAX);
@@ -66,7 +66,6 @@
 
                     //this section checks for a matching row
                     bool winningLine = true;
-
                     for (int columnNumber = 0; columnNumber < COLUMN_SIZE; columnNumber++)
                     {
                         for (int rowNumber = 1; rowNumber < ROW_SIZE; rowNumber++)
@@ -83,7 +82,7 @@
                     {
                         Console.WriteLine("\n\n");
                         Console.WriteLine($"Congratulations! You matched a row!");
-                        moneyCount = moneyCount + userWinnings;
+                        moneyCount += userBet;
                         break;
                     }
 
@@ -106,12 +105,11 @@
                     {
                         Console.WriteLine("\n\n");
                         Console.WriteLine($"Congratulations! You matched a column!");
-                        moneyCount = moneyCount + userWinnings;
+                        moneyCount += userBet;
                     }
 
                     //this section checks for the first way to match a diagonal (upper left to lower right)
                     bool winningFirstDiagonal = true;
-
                     for (int diagonalNumber = 1; diagonalNumber < DIAGONAL_SIZE; diagonalNumber++)
                     {
 
@@ -124,7 +122,6 @@
 
                     //this section checks for the second way to match a diagonal (upper right to lower left)
                     bool winningSecondDiagonal = true;
-
                     for (int diagonalNumber = 1; diagonalNumber < ROW_SIZE; diagonalNumber++)
                     {
                         if (slotMachine[0, (ROW_SIZE - 1)] != slotMachine[diagonalNumber, ROW_SIZE - 1 - diagonalNumber])
@@ -138,11 +135,12 @@
                     {
                         Console.WriteLine("\n\n");
                         Console.WriteLine($"Congratulations! You matched a diagonal!");
-                        moneyCount = moneyCount + userWinnings;
+                        moneyCount += userBet;
                     }
 
-                    if (moneyCount < moneyBeforeSpin)
+                    else
                     {
+                        Console.WriteLine("\n");
                         Console.WriteLine("Sorry. Not this time!");
                     }
                 }
@@ -153,7 +151,6 @@
                 Console.WriteLine("\n");
                 Console.WriteLine($"Would you like to play again?({USER_YES_CHOICE} or press any other key to exit the program)\n");
                 playAgain = Char.ToUpper(Console.ReadKey(true).KeyChar);
-
             } while (playAgain == USER_YES_CHOICE);
         }
     }
