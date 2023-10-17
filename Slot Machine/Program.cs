@@ -8,6 +8,9 @@
         const int DIAGONAL_SIZE = 3;
         const int RANDOM_MAX = 10;
         const int STARTING_MONEY = 100;
+        const int COLUMN_BET = 10;
+        const int FIRST_DIAGONAL_BET = 30;
+        const int SECOND_DIAGONAL_BET = 40;
         const char USER_YES_CHOICE = 'Y';
         static void Main(string[] args)
         {
@@ -30,6 +33,9 @@
                     while (true)
                     {
                         Console.WriteLine("How much money would you like to bet?");
+                        Console.WriteLine("Bets of 10 or less will allow you to win only by matching rows.");
+                        Console.WriteLine("Bets higher than 10 will allow you to match columns as well.");
+                        Console.WriteLine("Bets of at least 30 will allow for 1 diagonal and bets of 40 or more will allow for both!");
                         userBet = Convert.ToInt32(Console.ReadLine());
 
                         if (userBet > 0 && userBet <= moneyCount)
@@ -49,7 +55,7 @@
                     }
 
                     moneyCount -= userBet;
-                   
+
                     Console.Clear();
                     int[,] slotMachine = new int[ROW_SIZE, COLUMN_SIZE];
 
@@ -99,12 +105,16 @@
                         }
                     }
 
-                    if (winningColumn == true)
+                    if (userBet > COLUMN_BET)
                     {
-                        Console.WriteLine("\n\n");
-                        Console.WriteLine($"Congratulations! You matched a column!");
-                        moneyCount += userBet;
+                        if (winningColumn == true)
+                        {
+                            Console.WriteLine("\n\n");
+                            Console.WriteLine($"Congratulations! You matched a column!");
+                            moneyCount += userBet;
+                        }
                     }
+
 
                     //this section checks for the first way to match a diagonal (upper left to lower right)
                     bool winningFirstDiagonal = true;
@@ -115,6 +125,16 @@
                         {
                             winningFirstDiagonal = false;
                             break;
+                        }
+                    }
+
+                    if (userBet >= FIRST_DIAGONAL_BET)
+                    {
+                        if (winningFirstDiagonal == true)
+                        {
+                            Console.WriteLine("\n\n");
+                            Console.WriteLine($"Congratulations! You matched a diagonal!");
+                            moneyCount += userBet;
                         }
                     }
 
@@ -129,11 +149,14 @@
                         }
                     }
 
-                    if (winningFirstDiagonal == true || winningSecondDiagonal == true)
+                    if (userBet >= SECOND_DIAGONAL_BET)
                     {
-                        Console.WriteLine("\n\n");
-                        Console.WriteLine($"Congratulations! You matched a diagonal!");
-                        moneyCount += userBet;
+                        if (winningSecondDiagonal == true)
+                        {
+                            Console.WriteLine("\n\n");
+                            Console.WriteLine($"Congratulations! You matched a diagonal!");
+                            moneyCount += userBet;
+                        }
                     }
 
                     else
