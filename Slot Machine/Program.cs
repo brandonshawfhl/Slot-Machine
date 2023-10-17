@@ -83,7 +83,6 @@
                         Console.WriteLine("\n\n");
                         Console.WriteLine($"Congratulations! You matched a row!");
                         moneyCount += userBet;
-                        break;
                     }
 
                     //this section checks for a matching column
