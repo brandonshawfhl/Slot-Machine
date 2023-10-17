@@ -49,8 +49,7 @@
                     }
 
                     moneyCount -= userBet;
-                    int moneyBeforeSpin = moneyCount;
-
+                   
                     Console.Clear();
                     int[,] slotMachine = new int[ROW_SIZE, COLUMN_SIZE];
 
