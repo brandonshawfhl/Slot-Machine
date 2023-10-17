@@ -1,4 +1,6 @@
-﻿namespace Slot_Machine
+﻿using System.Diagnostics;
+
+namespace Slot_Machine
 {
     internal class Program
     {
@@ -11,6 +13,9 @@
         const int COLUMN_BET = 10;
         const int FIRST_DIAGONAL_BET = 30;
         const int SECOND_DIAGONAL_BET = 40;
+        const int ROW_WINNING_MULTIPLIER = 2;
+        const int COLUMN_WINNING_MULTIPLIER = 3;
+        const int DIAGONAL_WINNING_MULTIPIER = 4;
         const char USER_YES_CHOICE = 'Y';
         static void Main(string[] args)
         {
@@ -87,7 +92,7 @@
                     {
                         Console.WriteLine("\n\n");
                         Console.WriteLine($"Congratulations! You matched a row!");
-                        moneyCount += userBet;
+                        moneyCount  += (userBet * ROW_WINNING_MULTIPLIER);
                     }
 
                     //this section checks for a matching column
@@ -111,7 +116,7 @@
                         {
                             Console.WriteLine("\n\n");
                             Console.WriteLine($"Congratulations! You matched a column!");
-                            moneyCount += userBet;
+                            moneyCount += (userBet * COLUMN_WINNING_MULTIPLIER);
                         }
                     }
 
@@ -134,7 +139,7 @@
                         {
                             Console.WriteLine("\n\n");
                             Console.WriteLine($"Congratulations! You matched a diagonal!");
-                            moneyCount += userBet;
+                            moneyCount += (userBet * DIAGONAL_WINNING_MULTIPIER);
                         }
                     }
 
@@ -155,7 +160,7 @@
                         {
                             Console.WriteLine("\n\n");
                             Console.WriteLine($"Congratulations! You matched a diagonal!");
-                            moneyCount += userBet;
+                            moneyCount += (userBet * DIAGONAL_WINNING_MULTIPIER);
                         }
                     }
 
