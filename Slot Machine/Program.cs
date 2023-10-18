@@ -60,7 +60,7 @@ namespace Slot_Machine
                     }
 
                     moneyCount -= userBet;
-                    bool losesRound = false;
+                    bool losesRound = true;
 
                     Console.Clear();
                     int[,] slotMachine = new int[ROW_SIZE, COLUMN_SIZE];
@@ -93,7 +93,7 @@ namespace Slot_Machine
                             Console.WriteLine("\n\n");
                             Console.WriteLine($"Congratulations! You matched a row!");
                             moneyCount += (userBet * ROW_WINNING_MULTIPLIER);
-                            losesRound = true;
+                            losesRound = false;
                         }
                     }
 
@@ -117,6 +117,7 @@ namespace Slot_Machine
                                 Console.WriteLine("\n\n");
                                 Console.WriteLine($"Congratulations! You matched a column!");
                                 moneyCount += (userBet * COLUMN_WINNING_MULTIPLIER);
+                                losesRound = false;
                             }
                         }
                     }
@@ -139,6 +140,7 @@ namespace Slot_Machine
                             Console.WriteLine("\n\n");
                             Console.WriteLine($"Congratulations! You matched a diagonal!");
                             moneyCount += (userBet * DIAGONAL_WINNING_MULTIPIER);
+                            losesRound = false;
                         }
                     }
 
@@ -159,10 +161,11 @@ namespace Slot_Machine
                             Console.WriteLine("\n\n");
                             Console.WriteLine($"Congratulations! You matched a diagonal!");
                             moneyCount += (userBet * DIAGONAL_WINNING_MULTIPIER);
+                            losesRound = false;
                         }
                     }
 
-                    if (losesRound == false)
+                    if (losesRound == true)
                     {
                         Console.WriteLine("\n");
                         Console.WriteLine("Sorry. Not this time!");
