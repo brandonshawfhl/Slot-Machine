@@ -75,9 +75,10 @@ namespace Slot_Machine
                     }
 
                     //this section checks for a matching row
+                    bool winningRow = true;
                     for (int rowNumber = 0; rowNumber < ROW_SIZE; rowNumber++)
                     {
-                        bool winningRow = true;
+                        winningRow = true;
                         for (int columnNumber = 1; columnNumber < COLUMN_SIZE; columnNumber++)
                         {
                             if (slotMachine[rowNumber, 0] != slotMachine[rowNumber, columnNumber])
@@ -96,44 +97,45 @@ namespace Slot_Machine
 
 
                     //this section checks for a matching column
-                    bool winningColumn = true;
-                    for (int columnNumber = 0; columnNumber < COLUMN_SIZE; columnNumber++)
+                    if (userBet > COLUMN_BET)
                     {
-                        winningColumn = true;
-                        for (int rowNumber = 1; rowNumber < ROW_SIZE; rowNumber++)
+                        bool winningColumn = true;
+                        for (int columnNumber = 0; columnNumber < COLUMN_SIZE; columnNumber++)
                         {
-                            if (slotMachine[0, columnNumber] != slotMachine[rowNumber, columnNumber])
+                            winningColumn = true;
+                            for (int rowNumber = 1; rowNumber < ROW_SIZE; rowNumber++)
                             {
-                                winningColumn = false;
+                                if (slotMachine[0, columnNumber] != slotMachine[rowNumber, columnNumber])
+                                {
+                                    winningColumn = false;
+                                }
+                            }
+
+                            if (winningColumn == true)
+                            {
+                                Console.WriteLine("\n\n");
+                                Console.WriteLine($"Congratulations! You matched a column!");
+                                moneyCount += (userBet * COLUMN_WINNING_MULTIPLIER);
                             }
                         }
                     }
 
-                    if (userBet > COLUMN_BET)
-                    {
-                        if (winningColumn == true)
-                        {
-                            Console.WriteLine("\n\n");
-                            Console.WriteLine($"Congratulations! You matched a column!");
-                            moneyCount += (userBet * COLUMN_WINNING_MULTIPLIER);
-                        }
-                    }
 
 
                     //this section checks for the first way to match a diagonal (upper left to lower right)
-                    bool winningFirstDiagonal = true;
-                    for (int diagonalNumber = 1; diagonalNumber < DIAGONAL_SIZE; diagonalNumber++)
-                    {
-
-                        if (slotMachine[0, 0] != slotMachine[diagonalNumber, diagonalNumber])
-                        {
-                            winningFirstDiagonal = false;
-                            break;
-                        }
-                    }
-
                     if (userBet >= FIRST_DIAGONAL_BET)
                     {
+                        bool winningFirstDiagonal = true;
+                        for (int diagonalNumber = 1; diagonalNumber < DIAGONAL_SIZE; diagonalNumber++)
+                        {
+
+                            if (slotMachine[0, 0] != slotMachine[diagonalNumber, diagonalNumber])
+                            {
+                                winningFirstDiagonal = false;
+                                break;
+                            }
+                        }
+
                         if (winningFirstDiagonal == true)
                         {
                             Console.WriteLine("\n\n");
@@ -143,18 +145,18 @@ namespace Slot_Machine
                     }
 
                     //this section checks for the second way to match a diagonal (upper right to lower left)
-                    bool winningSecondDiagonal = true;
-                    for (int diagonalNumber = 1; diagonalNumber < ROW_SIZE; diagonalNumber++)
-                    {
-                        if (slotMachine[0, (ROW_SIZE - 1)] != slotMachine[diagonalNumber, ROW_SIZE - 1 - diagonalNumber])
-                        {
-                            winningSecondDiagonal = false;
-                            break;
-                        }
-                    }
-
                     if (userBet >= SECOND_DIAGONAL_BET)
                     {
+                        bool winningSecondDiagonal = true;
+                        for (int diagonalNumber = 1; diagonalNumber < ROW_SIZE; diagonalNumber++)
+                        {
+                            if (slotMachine[0, (ROW_SIZE - 1)] != slotMachine[diagonalNumber, ROW_SIZE - 1 - diagonalNumber])
+                            {
+                                winningSecondDiagonal = false;
+                                break;
+                            }
+                        }
+
                         if (winningSecondDiagonal == true)
                         {
                             Console.WriteLine("\n\n");
