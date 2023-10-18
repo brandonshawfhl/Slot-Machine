@@ -60,6 +60,7 @@ namespace Slot_Machine
                     }
 
                     moneyCount -= userBet;
+                    bool losesRound = false;
 
                     Console.Clear();
                     int[,] slotMachine = new int[ROW_SIZE, COLUMN_SIZE];
@@ -92,9 +93,9 @@ namespace Slot_Machine
                             Console.WriteLine("\n\n");
                             Console.WriteLine($"Congratulations! You matched a row!");
                             moneyCount += (userBet * ROW_WINNING_MULTIPLIER);
+                            losesRound = true;
                         }
                     }
-
 
                     //this section checks for a matching column
                     if (userBet > COLUMN_BET)
@@ -120,8 +121,6 @@ namespace Slot_Machine
                         }
                     }
 
-
-
                     //this section checks for the first way to match a diagonal (upper left to lower right)
                     if (userBet >= FIRST_DIAGONAL_BET)
                     {
@@ -132,7 +131,6 @@ namespace Slot_Machine
                             if (slotMachine[0, 0] != slotMachine[diagonalNumber, diagonalNumber])
                             {
                                 winningFirstDiagonal = false;
-                                break;
                             }
                         }
 
@@ -153,7 +151,6 @@ namespace Slot_Machine
                             if (slotMachine[0, (ROW_SIZE - 1)] != slotMachine[diagonalNumber, ROW_SIZE - 1 - diagonalNumber])
                             {
                                 winningSecondDiagonal = false;
-                                break;
                             }
                         }
 
@@ -165,7 +162,7 @@ namespace Slot_Machine
                         }
                     }
 
-                    else
+                    if (losesRound == false)
                     {
                         Console.WriteLine("\n");
                         Console.WriteLine("Sorry. Not this time!");
