@@ -8,7 +8,7 @@ namespace Slot_Machine
         const int ROW_SIZE = 3;
         const int COLUMN_SIZE = 3;
         const int DIAGONAL_SIZE = 3;
-        const int RANDOM_MAX = 10;
+        const int RANDOM_MAX = 3;
         const int STARTING_MONEY = 100;
         const int COLUMN_BET = 10;
         const int FIRST_DIAGONAL_BET = 30;
@@ -75,37 +75,36 @@ namespace Slot_Machine
                     }
 
                     //this section checks for a matching row
-                    bool winningLine = true;
-                    for (int columnNumber = 0; columnNumber < COLUMN_SIZE; columnNumber++)
-                    {
-                        for (int rowNumber = 1; rowNumber < ROW_SIZE; rowNumber++)
-                        {
-                            if (slotMachine[0, columnNumber] != slotMachine[rowNumber, columnNumber])
-                            {
-                                winningLine = false;
-                                break;
-                            }
-                        }
-                    }
-
-                    if (winningLine == true)
-                    {
-                        Console.WriteLine("\n\n");
-                        Console.WriteLine($"Congratulations! You matched a row!");
-                        moneyCount  += (userBet * ROW_WINNING_MULTIPLIER);
-                    }
-
-                    //this section checks for a matching column
-                    bool winningColumn = true;
-
                     for (int rowNumber = 0; rowNumber < ROW_SIZE; rowNumber++)
                     {
+                        bool winningRow = true;
                         for (int columnNumber = 1; columnNumber < COLUMN_SIZE; columnNumber++)
                         {
                             if (slotMachine[rowNumber, 0] != slotMachine[rowNumber, columnNumber])
                             {
+                                winningRow = false;
+                            }
+                        }
+
+                        if (winningRow == true)
+                        {
+                            Console.WriteLine("\n\n");
+                            Console.WriteLine($"Congratulations! You matched a row!");
+                            moneyCount += (userBet * ROW_WINNING_MULTIPLIER);
+                        }
+                    }
+
+
+                    //this section checks for a matching column
+                    bool winningColumn = true;
+                    for (int columnNumber = 0; columnNumber < COLUMN_SIZE; columnNumber++)
+                    {
+                        winningColumn = true;
+                        for (int rowNumber = 1; rowNumber < ROW_SIZE; rowNumber++)
+                        {
+                            if (slotMachine[0, columnNumber] != slotMachine[rowNumber, columnNumber])
+                            {
                                 winningColumn = false;
-                                break;
                             }
                         }
                     }
