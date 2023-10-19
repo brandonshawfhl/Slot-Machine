@@ -8,7 +8,7 @@ namespace Slot_Machine
         const int ROW_SIZE = 3;
         const int COLUMN_SIZE = 3;
         const int DIAGONAL_SIZE = 3;
-        const int RANDOM_MAX = 3;
+        const int RANDOM_MAX = 10;
         const int STARTING_MONEY = 100;
         const int COLUMN_BET = 10;
         const int FIRST_DIAGONAL_BET = 30;
@@ -38,9 +38,9 @@ namespace Slot_Machine
                     while (true)
                     {
                         Console.WriteLine("How much money would you like to bet?");
-                        Console.WriteLine("Bets of 10 or less will allow you to win only by matching rows.");
-                        Console.WriteLine("Bets higher than 10 will allow you to match columns as well.");
-                        Console.WriteLine("Bets of at least 30 will allow for 1 diagonal and bets of 40 or more will allow for both!");
+                        Console.WriteLine($"Bets less than {COLUMN_BET} will allow you to win only by matching rows.");
+                        Console.WriteLine($"Bets higher than {COLUMN_BET} will allow you to match columns as well.");
+                        Console.WriteLine($"Bets of at least {FIRST_DIAGONAL_BET} will allow for the first diagonal and bets of {SECOND_DIAGONAL_BET} or more will allow for both!");
                         userBet = Convert.ToInt32(Console.ReadLine());
 
                         if (userBet > 0 && userBet <= moneyCount)
