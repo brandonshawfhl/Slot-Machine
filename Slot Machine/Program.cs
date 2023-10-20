@@ -85,6 +85,7 @@ namespace Slot_Machine
                             if (slotMachine[rowNumber, 0] != slotMachine[rowNumber, columnNumber])
                             {
                                 winningRow = false;
+                                break;
                             }
                         }
 
@@ -109,6 +110,7 @@ namespace Slot_Machine
                                 if (slotMachine[0, columnNumber] != slotMachine[rowNumber, columnNumber])
                                 {
                                     winningColumn = false;
+                                    break;
                                 }
                             }
 
@@ -132,6 +134,7 @@ namespace Slot_Machine
                             if (slotMachine[0, 0] != slotMachine[diagonalNumber, diagonalNumber])
                             {
                                 winningFirstDiagonal = false;
+                                break;
                             }
                         }
 
@@ -153,6 +156,7 @@ namespace Slot_Machine
                             if (slotMachine[0, (ROW_SIZE - 1)] != slotMachine[diagonalNumber, ROW_SIZE - 1 - diagonalNumber])
                             {
                                 winningSecondDiagonal = false;
+                                break;
                             }
                         }
 
