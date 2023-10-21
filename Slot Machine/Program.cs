@@ -43,19 +43,20 @@ namespace Slot_Machine
                         Console.WriteLine($"Bets of at least {FIRST_DIAGONAL_BET} will allow for the first diagonal and bets of {SECOND_DIAGONAL_BET} or more will allow for both!");
                         userBet = Convert.ToInt32(Console.ReadLine());
 
-                        if (userBet > 0 && userBet <= moneyCount)
-                        {
-                            break;
-                        }
 
                         if (userBet <= 0)
                         {
                             Console.WriteLine("Please bet at least $1.\n");
                         }
 
-                        if (userBet > moneyCount)
+                        else if (userBet > moneyCount)
                         {
                             Console.WriteLine("You don't have that much money!\n");
+                        }
+
+                        else
+                        {
+                            break;
                         }
                     }
 
