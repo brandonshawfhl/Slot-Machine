@@ -25,10 +25,8 @@ namespace Slot_Machine
             //loop for playing the game more than once
             do
             {
-                Console.Clear();
+                UserInterface.WelcomeMessage();
                 int moneyCount = STARTING_MONEY;
-                Console.WriteLine("Welcome to Virtual Slot Machine!");
-                Console.WriteLine("Play to win big!");
                 // loop for running the slots until user runs out of money
                 while (moneyCount > 0)
                 {
