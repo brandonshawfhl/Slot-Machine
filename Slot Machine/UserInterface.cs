@@ -1,12 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Slot_Machine
+﻿namespace Slot_Machine
 {
-    internal class Class1
+    internal class UserInterface
     {
+        public static void WelcomeMessage()
+        {
+            Console.Clear();
+            Console.WriteLine("Welcome to Virtual Slot Machine!");
+            Console.WriteLine("Play to win big!");
+        }
+
+        public static string WinningRowMessage(string matchType)
+        {
+            Console.WriteLine("\n\n");
+            Console.WriteLine($"Congratulations! You matched a row!");
+        }
+
     }
 }

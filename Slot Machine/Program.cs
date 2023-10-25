@@ -90,8 +90,7 @@ namespace Slot_Machine
 
                         if (winningRow == true)
                         {
-                            Console.WriteLine("\n\n");
-                            Console.WriteLine($"Congratulations! You matched a row!");
+                            UserInterface.WinningRowMessage();
                             moneyCount += (userBet * ROW_WINNING_MULTIPLIER);
                             losesRound = false;
                         }
