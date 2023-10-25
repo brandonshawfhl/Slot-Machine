@@ -9,11 +9,44 @@
             Console.WriteLine("Play to win big!");
         }
 
-        public static string WinningRowMessage(string matchType)
+        public static void WinningRowMessage()
         {
             Console.WriteLine("\n\n");
             Console.WriteLine($"Congratulations! You matched a row!");
         }
+
+        public static void WinningColumnMessage()
+        {
+            Console.WriteLine("\n\n");
+            Console.WriteLine($"Congratulations! You matched a column!");
+        }
+        
+        public static void WinningDiagonalMessage()
+        {
+            Console.WriteLine("\n\n");
+            Console.WriteLine($"Congratulations! You matched a diagonal!");
+        }
+
+        public static void LosingSpinMessage()
+        {
+            Console.WriteLine("\n\n");
+            Console.WriteLine($"Sorry. Not this time.");
+        }    
+
+        public static void UserOutOfMoney()
+        {
+            Console.WriteLine("\n\n");
+            Console.WriteLine("Sorry it looks like your are flat broke! You lose!");
+        }
+
+        public static void BetLessThan1()
+        {
+            Console.WriteLine("Please bet at least $1.\n");
+        }
+        
+
+
+       
 
     }
 }

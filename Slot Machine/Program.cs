@@ -44,7 +44,7 @@ namespace Slot_Machine
 
                         if (userBet <= 0)
                         {
-                            Console.WriteLine("Please bet at least $1.\n");
+                            UserInterface.BetLessThan1();
                         }
 
                         else if (userBet > moneyCount)
@@ -114,8 +114,7 @@ namespace Slot_Machine
 
                             if (winningColumn == true)
                             {
-                                Console.WriteLine("\n\n");
-                                Console.WriteLine($"Congratulations! You matched a column!");
+                                UserInterface.WinningColumnMessage();
                                 moneyCount += (userBet * COLUMN_WINNING_MULTIPLIER);
                                 losesRound = false;
                             }
@@ -138,8 +137,7 @@ namespace Slot_Machine
 
                         if (winningFirstDiagonal == true)
                         {
-                            Console.WriteLine("\n\n");
-                            Console.WriteLine($"Congratulations! You matched a diagonal!");
+                           UserInterface.WinningDiagonalMessage();
                             moneyCount += (userBet * DIAGONAL_WINNING_MULTIPIER);
                             losesRound = false;
                         }
@@ -160,8 +158,7 @@ namespace Slot_Machine
 
                         if (winningSecondDiagonal == true)
                         {
-                            Console.WriteLine("\n\n");
-                            Console.WriteLine($"Congratulations! You matched a diagonal!");
+                            UserInterface.WinningDiagonalMessage();
                             moneyCount += (userBet * DIAGONAL_WINNING_MULTIPIER);
                             losesRound = false;
                         }
@@ -169,13 +166,11 @@ namespace Slot_Machine
 
                     if (losesRound == true)
                     {
-                        Console.WriteLine("\n");
-                        Console.WriteLine("Sorry. Not this time!");
+                        UserInterface.LosingSpinMessage();
                     }
                 }
 
-                Console.WriteLine("\n\n");
-                Console.WriteLine("Sorry it looks like your are flat broke! You lose!");
+                UserInterface.UserOutOfMoney();
 
                 Console.WriteLine("\n");
                 Console.WriteLine($"Would you like to play again?({USER_YES_CHOICE} or press any other key to exit the program)\n");
