@@ -61,9 +61,10 @@
             Console.WriteLine($"Bets of at least {FIRST_DIAGONAL_BET} will allow for the first diagonal and bets of {SECOND_DIAGONAL_BET} or more will allow for both!");
         }
 
-
-
-
-
+        public static void MoneyLeft()
+        {
+            Console.WriteLine("\n\n");
+            Console.WriteLine($"You have ${Logic.moneyCount} left to bet.\n");
+        }
     }
 }

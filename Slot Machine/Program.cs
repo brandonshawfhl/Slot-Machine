@@ -17,8 +17,7 @@ namespace Slot_Machine
                 // loop for running the slots until user runs out of money
                 while (Logic.moneyCount > 0)
                 {
-                    Console.WriteLine("\n\n");
-                    Console.WriteLine($"You have ${Logic.moneyCount} left to bet.\n");
+                  UserInterface.MoneyLeft();
 
                     while (true)
                     {
