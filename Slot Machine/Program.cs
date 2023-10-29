@@ -42,7 +42,7 @@ namespace Slot_Machine
                     }
 
                     Logic.moneyCount -= Logic.userBet;
-                    bool losesRound = true;
+                    Logic.losesRound = true;
 
                     Console.Clear();
                     int[,] slotMachine = new int[Constants.ROW_SIZE, Constants.COLUMN_SIZE];
@@ -75,7 +75,7 @@ namespace Slot_Machine
                         {
                             UserInterface.WinningRowMessage();
                             Logic.moneyCount += (Logic.userBet * Constants.ROW_WINNING_MULTIPLIER);
-                            losesRound = false;
+                            Logic.losesRound = false;
                         }
                     }
 
@@ -99,7 +99,7 @@ namespace Slot_Machine
                             {
                                 UserInterface.WinningColumnMessage();
                                 Logic.moneyCount += (Logic.userBet * Constants.COLUMN_WINNING_MULTIPLIER);
-                                losesRound = false;
+                                Logic.losesRound = false;
                             }
                         }
                     }
@@ -122,7 +122,7 @@ namespace Slot_Machine
                         {
                            UserInterface.WinningDiagonalMessage();
                             Logic.moneyCount += (Logic.userBet * Constants.DIAGONAL_WINNING_MULTIPIER);
-                            losesRound = false;
+                            Logic.losesRound = false;
                         }
                     }
 
@@ -142,12 +142,12 @@ namespace Slot_Machine
                         if (winningSecondDiagonal == true)
                         {
                             UserInterface.WinningDiagonalMessage();
-                            Logic.  moneyCount += (Logic.userBet * Constants.DIAGONAL_WINNING_MULTIPIER);
-                            losesRound = false;
+                            Logic.moneyCount += (Logic.userBet * Constants.DIAGONAL_WINNING_MULTIPIER);
+                            Logic.losesRound = false;
                         }
                     }
 
-                    if (losesRound == true)
+                    if (Logic.losesRound == true)
                     {
                         UserInterface.LosingSpinMessage();
                     }
