@@ -58,20 +58,19 @@ namespace Slot_Machine
                     }
 
                     //this section checks for a matching row
-                    bool winningRow = true;
                     for (int rowNumber = 0; rowNumber < Constants.ROW_SIZE; rowNumber++)
                     {
-                        winningRow = true;
+                        Logic.winningRow = true;
                         for (int columnNumber = 1; columnNumber < Constants.COLUMN_SIZE; columnNumber++)
                         {
                             if (Logic.slotMachine[rowNumber, 0] != Logic.slotMachine[rowNumber, columnNumber])
                             {
-                                winningRow = false;
+                                Logic.winningRow = false;
                                 break;
                             }
                         }
 
-                        if (winningRow == true)
+                        if (Logic.winningRow == true)
                         {
                             UserInterface.WinningRowMessage();
                             Logic.moneyCount += (Logic.userBet * Constants.ROW_WINNING_MULTIPLIER);
