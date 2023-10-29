@@ -24,7 +24,6 @@ namespace Slot_Machine
                         UserInterface.BettingRules();
                         Logic.userBet = Convert.ToInt32(Console.ReadLine());
 
-
                         if (Logic.userBet <= 0)
                         {
                             UserInterface.BetLessThan1();
@@ -47,15 +46,7 @@ namespace Slot_Machine
                     Console.Clear();
                     Logic.slotMachine = new int[Constants.ROW_SIZE, Constants.COLUMN_SIZE];
 
-                    for (int verticalNumber = 0; verticalNumber < Constants.ROW_SIZE; verticalNumber++)
-                    {
-                        Console.Write("\n\t");
-                        for (int horizontalNumber = 0; horizontalNumber < Constants.COLUMN_SIZE; horizontalNumber++)
-                        {
-                            Logic.slotMachine[verticalNumber, horizontalNumber] = rng.Next(0, Constants.RANDOM_MAX);
-                            Console.Write(Logic.slotMachine[verticalNumber, horizontalNumber]);
-                        }
-                    }
+                    UserInterface.PrintSlotMachine();
 
                     //this section checks for a matching row
                     for (int rowNumber = 0; rowNumber < Constants.ROW_SIZE; rowNumber++)

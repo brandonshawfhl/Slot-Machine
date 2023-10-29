@@ -66,5 +66,18 @@
             Console.WriteLine("\n\n");
             Console.WriteLine($"You have ${Logic.moneyCount} left to bet.\n");
         }
+
+        public static void PrintSlotMachine()
+        {
+            for (int verticalNumber = 0; verticalNumber < Constants.ROW_SIZE; verticalNumber++)
+            {
+                Console.Write("\n\t");
+                for (int horizontalNumber = 0; horizontalNumber < Constants.COLUMN_SIZE; horizontalNumber++)
+                {
+                    Logic.slotMachine[verticalNumber, horizontalNumber] = Program.rng.Next(0, Constants.RANDOM_MAX);
+                    Console.Write(Logic.slotMachine[verticalNumber, horizontalNumber]);
+                }
+            }
+        }
     }
 }
