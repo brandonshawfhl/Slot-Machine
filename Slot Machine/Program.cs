@@ -81,20 +81,19 @@ namespace Slot_Machine
                     //this section checks for a matching column
                     if (Logic.userBet > Constants.COLUMN_BET)
                     {
-                        bool winningColumn = true;
                         for (int columnNumber = 0; columnNumber < Constants.COLUMN_SIZE; columnNumber++)
                         {
-                            winningColumn = true;
+                            Logic.winningColumn = true;
                             for (int rowNumber = 1; rowNumber < Constants.ROW_SIZE; rowNumber++)
                             {
                                 if (Logic.slotMachine[0, columnNumber] != Logic.slotMachine[rowNumber, columnNumber])
                                 {
-                                    winningColumn = false;
+                                    Logic.winningColumn = false;
                                     break;
                                 }
                             }
 
-                            if (winningColumn == true)
+                            if (Logic.winningColumn == true)
                             {
                                 UserInterface.WinningColumnMessage();
                                 Logic.moneyCount += (Logic.userBet * Constants.COLUMN_WINNING_MULTIPLIER);
