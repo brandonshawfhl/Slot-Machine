@@ -15,12 +15,11 @@ namespace Slot_Machine
             do
             {
                 UserInterface.WelcomeMessage();
-                int moneyCount = Constants.STARTING_MONEY;
                 // loop for running the slots until user runs out of money
                 while (moneyCount > 0)
                 {
                     Console.WriteLine("\n\n");
-                    Console.WriteLine($"You have ${moneyCount} left to bet.\n");
+                    Console.WriteLine($"You have ${Logic.moneyCount} left to bet.\n");
 
                     while (true)
                     {
