@@ -8,15 +8,14 @@ namespace Slot_Machine
         
         static void Main(string[] args)
         {
-            char playAgain = Constants.USER_YES_CHOICE;
-            int userBet = 0;
-
+            Logic.userBet = 0;
+           
             //loop for playing the game more than once
             do
             {
                 UserInterface.WelcomeMessage();
                 // loop for running the slots until user runs out of money
-                while (moneyCount > 0)
+                while (Logic.moneyCount > 0)
                 {
                     Console.WriteLine("\n\n");
                     Console.WriteLine($"You have ${Logic.moneyCount} left to bet.\n");
@@ -24,15 +23,15 @@ namespace Slot_Machine
                     while (true)
                     {
                         UserInterface.BettingRules();
-                        userBet = Convert.ToInt32(Console.ReadLine());
+                        Logic.userBet = Convert.ToInt32(Console.ReadLine());
 
 
-                        if (userBet <= 0)
+                        if (Logic.userBet <= 0)
                         {
                             UserInterface.BetLessThan1();
                         }
 
-                        else if (userBet > moneyCount)
+                        else if (Logic.userBet > Logic.moneyCount)
                         {
                             UserInterface.NotEnoughMoney();
                         }
@@ -43,7 +42,7 @@ namespace Slot_Machine
                         }
                     }
 
-                    moneyCount -= userBet;
+                    Logic.moneyCount -= Logic.userBet;
                     bool losesRound = true;
 
                     Console.Clear();
@@ -76,13 +75,13 @@ namespace Slot_Machine
                         if (winningRow == true)
                         {
                             UserInterface.WinningRowMessage();
-                            moneyCount += (userBet * Constants.ROW_WINNING_MULTIPLIER);
+                            Logic.moneyCount += (Logic.userBet * Constants.ROW_WINNING_MULTIPLIER);
                             losesRound = false;
                         }
                     }
 
                     //this section checks for a matching column
-                    if (userBet > Constants.COLUMN_BET)
+                    if (Logic.userBet > Constants.COLUMN_BET)
                     {
                         bool winningColumn = true;
                         for (int columnNumber = 0; columnNumber < Constants.COLUMN_SIZE; columnNumber++)
@@ -100,14 +99,14 @@ namespace Slot_Machine
                             if (winningColumn == true)
                             {
                                 UserInterface.WinningColumnMessage();
-                                moneyCount += (userBet * Constants.COLUMN_WINNING_MULTIPLIER);
+                                Logic.moneyCount += (Logic.userBet * Constants.COLUMN_WINNING_MULTIPLIER);
                                 losesRound = false;
                             }
                         }
                     }
 
                     //this section checks for the first way to match a diagonal (upper left to lower right)
-                    if (userBet >= Constants.FIRST_DIAGONAL_BET)
+                    if (Logic.userBet >= Constants.FIRST_DIAGONAL_BET)
                     {
                         bool winningFirstDiagonal = true;
                         for (int diagonalNumber = 1; diagonalNumber < Constants.DIAGONAL_SIZE; diagonalNumber++)
@@ -123,13 +122,13 @@ namespace Slot_Machine
                         if (winningFirstDiagonal == true)
                         {
                            UserInterface.WinningDiagonalMessage();
-                            moneyCount += (userBet * Constants.DIAGONAL_WINNING_MULTIPIER);
+                            Logic.moneyCount += (Logic.userBet * Constants.DIAGONAL_WINNING_MULTIPIER);
                             losesRound = false;
                         }
                     }
 
                     //this section checks for the second way to match a diagonal (upper right to lower left)
-                    if (userBet >= Constants.SECOND_DIAGONAL_BET)
+                    if (Logic.userBet >= Constants.SECOND_DIAGONAL_BET)
                     {
                         bool winningSecondDiagonal = true;
                         for (int diagonalNumber = 1; diagonalNumber < Constants.ROW_SIZE; diagonalNumber++)
@@ -144,7 +143,7 @@ namespace Slot_Machine
                         if (winningSecondDiagonal == true)
                         {
                             UserInterface.WinningDiagonalMessage();
-                            moneyCount += (userBet * Constants.DIAGONAL_WINNING_MULTIPIER);
+                            Logic.  moneyCount += (Logic.userBet * Constants.DIAGONAL_WINNING_MULTIPIER);
                             losesRound = false;
                         }
                     }
@@ -159,8 +158,8 @@ namespace Slot_Machine
 
                 Console.WriteLine("\n");
                 Console.WriteLine($"Would you like to play again?({Constants.USER_YES_CHOICE} or press any other key to exit the program)\n");
-                playAgain = Char.ToUpper(Console.ReadKey(true).KeyChar);
-            } while (playAgain == Constants.USER_YES_CHOICE);
+                Logic.playAgain = Char.ToUpper(Console.ReadKey(true).KeyChar);
+            } while (Logic.playAgain == Constants.USER_YES_CHOICE);
         }
     }
 }
