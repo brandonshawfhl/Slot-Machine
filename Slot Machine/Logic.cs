@@ -10,5 +10,6 @@
         public static bool winningRow = true;
         public static bool winningColumn = true;
         public static bool winningFirstDiagonal = true;
+        public static bool winningSecondDiagonal = true;
     }
 }
