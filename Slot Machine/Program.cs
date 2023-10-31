@@ -84,17 +84,17 @@ namespace Slot_Machine
                     {
                         for (int columnNumber = 0; columnNumber < Constants.COLUMN_SIZE; columnNumber++)
                         {
-                            Logic.winningColumn = true;
+                            bool winningColumn = true;
                             for (int rowNumber = 1; rowNumber < Constants.ROW_SIZE; rowNumber++)
                             {
                                 if (slotMachine[0, columnNumber] != slotMachine[rowNumber, columnNumber])
                                 {
-                                    Logic.winningColumn = false;
+                                    winningColumn = false;
                                     break;
                                 }
                             }
 
-                            if (Logic.winningColumn == true)
+                            if (winningColumn == true)
                             {
                                 UserInterface.WinningColumnMessage();
                                 moneyCount += (userBet * Constants.COLUMN_WINNING_MULTIPLIER);
