@@ -61,23 +61,14 @@
             Console.WriteLine($"Bets of at least {FIRST_DIAGONAL_BET} will allow for the first diagonal and bets of {SECOND_DIAGONAL_BET} or more will allow for both!");
         }
 
-        public static void MoneyLeft()
+        public static string MoneyLeft(int moneyCount)
         {
-            Console.WriteLine("\n\n");
-            Console.WriteLine($"You have ${Logic.moneyCount} left to bet.\n");
+            return $"\n\n\n You have${moneyCount} left to bet.\n";
         }
 
         public static void PrintSlotMachine()
         {
-            for (int verticalNumber = 0; verticalNumber < Constants.ROW_SIZE; verticalNumber++)
-            {
-                Console.Write("\n\t");
-                for (int horizontalNumber = 0; horizontalNumber < Constants.COLUMN_SIZE; horizontalNumber++)
-                {
-                    Logic.slotMachine[verticalNumber, horizontalNumber] = Program.rng.Next(0, Constants.RANDOM_MAX);
-                    Console.Write(Logic.slotMachine[verticalNumber, horizontalNumber]);
-                }
-            }
+            
         }
     }
 }

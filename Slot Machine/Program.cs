@@ -5,19 +5,20 @@ namespace Slot_Machine
     internal class Program
     {
         public static readonly Random rng = new Random();
-        
+
         static void Main(string[] args)
         {
             Logic.userBet = 0;
-           
+
             //loop for playing the game more than once
             do
             {
                 UserInterface.WelcomeMessage();
                 // loop for running the slots until user runs out of money
-                while (Logic.moneyCount > 0)
+                int moneyCount = 0;
+                while (moneyCount > 0)
                 {
-                  UserInterface.MoneyLeft();
+                    UserInterface.MoneyLeft(moneyCount);
 
                     while (true)
                     {
@@ -29,7 +30,7 @@ namespace Slot_Machine
                             UserInterface.BetLessThan1();
                         }
 
-                        else if (Logic.userBet > Logic.moneyCount)
+                        else if (Logic.userBet > moneyCount)
                         {
                             UserInterface.NotEnoughMoney();
                         }
@@ -40,13 +41,21 @@ namespace Slot_Machine
                         }
                     }
 
-                    Logic.moneyCount -= Logic.userBet;
+                    moneyCount -= Logic.userBet;
                     Logic.losesRound = true;
 
                     Console.Clear();
                     Logic.slotMachine = new int[Constants.ROW_SIZE, Constants.COLUMN_SIZE];
 
-                    UserInterface.PrintSlotMachine();
+                    for (int verticalNumber = 0; verticalNumber < Constants.ROW_SIZE; verticalNumber++)
+                    {
+                        Console.Write("\n\t");
+                        for (int horizontalNumber = 0; horizontalNumber < Constants.COLUMN_SIZE; horizontalNumber++)
+                        {
+                            Logic.slotMachine[verticalNumber, horizontalNumber] = Program.rng.Next(0, Constants.RANDOM_MAX);
+                            Console.Write(Logic.slotMachine[verticalNumber, horizontalNumber]);
+                        }
+                    }
 
                     //this section checks for a matching row
                     for (int rowNumber = 0; rowNumber < Constants.ROW_SIZE; rowNumber++)
@@ -64,7 +73,7 @@ namespace Slot_Machine
                         if (Logic.winningRow == true)
                         {
                             UserInterface.WinningRowMessage();
-                            Logic.moneyCount += (Logic.userBet * Constants.ROW_WINNING_MULTIPLIER);
+                            moneyCount += (Logic.userBet * Constants.ROW_WINNING_MULTIPLIER);
                             Logic.losesRound = false;
                         }
                     }
@@ -87,7 +96,7 @@ namespace Slot_Machine
                             if (Logic.winningColumn == true)
                             {
                                 UserInterface.WinningColumnMessage();
-                                Logic.moneyCount += (Logic.userBet * Constants.COLUMN_WINNING_MULTIPLIER);
+                                moneyCount += (Logic.userBet * Constants.COLUMN_WINNING_MULTIPLIER);
                                 Logic.losesRound = false;
                             }
                         }
@@ -108,8 +117,8 @@ namespace Slot_Machine
 
                         if (Logic.winningFirstDiagonal == true)
                         {
-                           UserInterface.WinningDiagonalMessage();
-                            Logic.moneyCount += (Logic.userBet * Constants.DIAGONAL_WINNING_MULTIPIER);
+                            UserInterface.WinningDiagonalMessage();
+                            moneyCount += (Logic.userBet * Constants.DIAGONAL_WINNING_MULTIPIER);
                             Logic.losesRound = false;
                         }
                     }
@@ -129,7 +138,7 @@ namespace Slot_Machine
                         if (Logic.winningSecondDiagonal == true)
                         {
                             UserInterface.WinningDiagonalMessage();
-                            Logic.moneyCount += (Logic.userBet * Constants.DIAGONAL_WINNING_MULTIPIER);
+                           moneyCount += (Logic.userBet * Constants.DIAGONAL_WINNING_MULTIPIER);
                             Logic.losesRound = false;
                         }
                     }
