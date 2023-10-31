@@ -106,17 +106,18 @@ namespace Slot_Machine
                     //this section checks for the first way to match a diagonal (upper left to lower right)
                     if (userBet >= Constants.FIRST_DIAGONAL_BET)
                     {
+                        bool winningFirstDiagonal = true;
                         for (int diagonalNumber = 1; diagonalNumber < Constants.DIAGONAL_SIZE; diagonalNumber++)
                         {
 
                             if (slotMachine[0, 0] != slotMachine[diagonalNumber, diagonalNumber])
                             {
-                                Logic.winningFirstDiagonal = false;
+                                winningFirstDiagonal = false;
                                 break;
                             }
                         }
 
-                        if (Logic.winningFirstDiagonal == true)
+                        if (winningFirstDiagonal == true)
                         {
                             UserInterface.WinningDiagonalMessage();
                             moneyCount += (userBet * Constants.DIAGONAL_WINNING_MULTIPIER);
