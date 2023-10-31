@@ -46,15 +46,15 @@ namespace Slot_Machine
                     bool losesRound = true;
 
                     Console.Clear();
-                    Logic.slotMachine = new int[Constants.ROW_SIZE, Constants.COLUMN_SIZE];
+                    int[,] slotMachine = new int[Constants.ROW_SIZE, Constants.COLUMN_SIZE];
 
                     for (int verticalNumber = 0; verticalNumber < Constants.ROW_SIZE; verticalNumber++)
                     {
                         Console.Write("\n\t");
                         for (int horizontalNumber = 0; horizontalNumber < Constants.COLUMN_SIZE; horizontalNumber++)
                         {
-                            Logic.slotMachine[verticalNumber, horizontalNumber] = Program.rng.Next(0, Constants.RANDOM_MAX);
-                            Console.Write(Logic.slotMachine[verticalNumber, horizontalNumber]);
+                            slotMachine[verticalNumber, horizontalNumber] = Program.rng.Next(0, Constants.RANDOM_MAX);
+                            Console.Write(slotMachine[verticalNumber, horizontalNumber]);
                         }
                     }
 
@@ -64,7 +64,7 @@ namespace Slot_Machine
                         Logic.winningRow = true;
                         for (int columnNumber = 1; columnNumber < Constants.COLUMN_SIZE; columnNumber++)
                         {
-                            if (Logic.slotMachine[rowNumber, 0] != Logic.slotMachine[rowNumber, columnNumber])
+                            if (slotMachine[rowNumber, 0] != slotMachine[rowNumber, columnNumber])
                             {
                                 Logic.winningRow = false;
                                 break;
@@ -87,7 +87,7 @@ namespace Slot_Machine
                             Logic.winningColumn = true;
                             for (int rowNumber = 1; rowNumber < Constants.ROW_SIZE; rowNumber++)
                             {
-                                if (Logic.slotMachine[0, columnNumber] != Logic.slotMachine[rowNumber, columnNumber])
+                                if (slotMachine[0, columnNumber] != slotMachine[rowNumber, columnNumber])
                                 {
                                     Logic.winningColumn = false;
                                     break;
@@ -109,7 +109,7 @@ namespace Slot_Machine
                         for (int diagonalNumber = 1; diagonalNumber < Constants.DIAGONAL_SIZE; diagonalNumber++)
                         {
 
-                            if (Logic.slotMachine[0, 0] != Logic.slotMachine[diagonalNumber, diagonalNumber])
+                            if (slotMachine[0, 0] != slotMachine[diagonalNumber, diagonalNumber])
                             {
                                 Logic.winningFirstDiagonal = false;
                                 break;
@@ -129,7 +129,7 @@ namespace Slot_Machine
                     {
                         for (int diagonalNumber = 1; diagonalNumber < Constants.ROW_SIZE; diagonalNumber++)
                         {
-                            if (Logic.slotMachine[0, (Constants.ROW_SIZE - 1)] != Logic.slotMachine[diagonalNumber, Constants.ROW_SIZE - 1 - diagonalNumber])
+                            if (slotMachine[0, (Constants.ROW_SIZE - 1)] != slotMachine[diagonalNumber, Constants.ROW_SIZE - 1 - diagonalNumber])
                             {
                                 Logic.winningSecondDiagonal = false;
                                 break;
