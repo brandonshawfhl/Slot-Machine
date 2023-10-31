@@ -8,6 +8,7 @@ namespace Slot_Machine
 
         static void Main(string[] args)
         {
+            char playAgain = Constants.USER_YES_CHOICE
             Logic.userBet = 0;
 
             //loop for playing the game more than once
@@ -153,8 +154,8 @@ namespace Slot_Machine
 
                 Console.WriteLine("\n");
                 Console.WriteLine($"Would you like to play again?({Constants.USER_YES_CHOICE} or press any other key to exit the program)\n");
-                Logic.playAgain = Char.ToUpper(Console.ReadKey(true).KeyChar);
-            } while (Logic.playAgain == Constants.USER_YES_CHOICE);
+                playAgain = Char.ToUpper(Console.ReadKey(true).KeyChar);
+            } while (playAgain == Constants.USER_YES_CHOICE);
         }
     }
 }
