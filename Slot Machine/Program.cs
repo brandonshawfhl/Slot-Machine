@@ -128,16 +128,17 @@ namespace Slot_Machine
                     //this section checks for the second way to match a diagonal (upper right to lower left)
                     if (userBet >= Constants.SECOND_DIAGONAL_BET)
                     {
+                        bool winningSecondDiagonal = true;
                         for (int diagonalNumber = 1; diagonalNumber < Constants.ROW_SIZE; diagonalNumber++)
                         {
                             if (slotMachine[0, (Constants.ROW_SIZE - 1)] != slotMachine[diagonalNumber, Constants.ROW_SIZE - 1 - diagonalNumber])
                             {
-                                Logic.winningSecondDiagonal = false;
+                                winningSecondDiagonal = false;
                                 break;
                             }
                         }
 
-                        if (Logic.winningSecondDiagonal == true)
+                        if (winningSecondDiagonal == true)
                         {
                             UserInterface.WinningDiagonalMessage();
                             moneyCount += (userBet * Constants.DIAGONAL_WINNING_MULTIPIER);
