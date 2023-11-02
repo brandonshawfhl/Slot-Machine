@@ -19,6 +19,8 @@ namespace Slot_Machine
                 int moneyCount = Constants.STARTING_MONEY;
                 while (moneyCount > 0)
                 {
+                    UserInterface.Write2EmptyLines();
+                    UserInterface.WriteEmptyLine();
                     UserInterface.MoneyLeft(moneyCount);
 
                     while (true)
@@ -73,6 +75,7 @@ namespace Slot_Machine
 
                         if (winningRow)
                         {
+                            UserInterface.Write2EmptyLines();
                             UserInterface.WinningRowMessage();
                             moneyCount += (userBet * Constants.ROW_WINNING_MULTIPLIER);
                             losesRound = false;
@@ -96,6 +99,7 @@ namespace Slot_Machine
 
                             if (winningColumn)
                             {
+                                UserInterface.Write2EmptyLines();
                                 UserInterface.WinningColumnMessage();
                                 moneyCount += (userBet * Constants.COLUMN_WINNING_MULTIPLIER);
                                 losesRound = false;
@@ -119,6 +123,7 @@ namespace Slot_Machine
 
                         if (winningFirstDiagonal)
                         {
+                            UserInterface.Write2EmptyLines();
                             UserInterface.WinningDiagonalMessage();
                             moneyCount += (userBet * Constants.DIAGONAL_WINNING_MULTIPIER);
                             losesRound = false;
@@ -140,6 +145,7 @@ namespace Slot_Machine
 
                         if (winningSecondDiagonal)
                         {
+                            UserInterface.Write2EmptyLines();
                             UserInterface.WinningDiagonalMessage();
                             moneyCount += (userBet * Constants.DIAGONAL_WINNING_MULTIPIER);
                             losesRound = false;

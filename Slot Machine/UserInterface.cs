@@ -11,31 +11,26 @@
 
         public static void WinningRowMessage()
         {
-            Console.WriteLine("\n\n");
             Console.WriteLine($"Congratulations! You matched a row!");
         }
 
         public static void WinningColumnMessage()
         {
-            Console.WriteLine("\n\n");
             Console.WriteLine($"Congratulations! You matched a column!");
         }
 
         public static void WinningDiagonalMessage()
         {
-            Console.WriteLine("\n\n");
             Console.WriteLine($"Congratulations! You matched a diagonal!");
         }
 
         public static void LosingSpinMessage()
         {
-            Console.WriteLine("\n\n");
             Console.WriteLine($"Sorry. Not this time.");
         }
 
         public static void UserOutOfMoney()
         {
-            Console.WriteLine("\n\n");
             Console.WriteLine("Sorry it looks like your are flat broke! You lose!");
         }
 
@@ -59,12 +54,21 @@
 
         public static string MoneyLeft(int moneyCount)
         {
-            return $"\n\n\n You have${moneyCount} left to bet.\n";
+            return $"You have${moneyCount} left to bet.\n";
         }
 
         public static void ClearUserOutput()
         {
             Console.Clear();
+        }
+
+        public static void WriteEmptyLine()
+        {
+            Console.WriteLine("\n");
+
+        } public static void Write2EmptyLines()
+        {
+            Console.WriteLine("\n\n");
         }
 
         public static void PrintSlotMachine()
