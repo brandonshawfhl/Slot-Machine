@@ -39,7 +39,7 @@ namespace Slot_Machine
 
                         else if (userBet > moneyCount)
                         {
-                            UserInterface.NotEnoughMoney();
+                            Console.WriteLine("You don't have that much money!\n");
                         }
 
                         else

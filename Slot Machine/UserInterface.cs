@@ -34,11 +34,6 @@
             Console.WriteLine("Sorry it looks like your are flat broke! You lose!");
         }
 
-        public static void NotEnoughMoney()
-        {
-            Console.WriteLine("You don't have that much money!\n");
-        }
-
         public static void BettingRules()
         {
             Console.WriteLine("How much money would you like to bet?");
