@@ -71,7 +71,7 @@ namespace Slot_Machine
                             }
                         }
 
-                        if (winningRow == true)
+                        if (winningRow)
                         {
                             UserInterface.WinningRowMessage();
                             moneyCount += (userBet * Constants.ROW_WINNING_MULTIPLIER);
@@ -94,7 +94,7 @@ namespace Slot_Machine
                                 }
                             }
 
-                            if (winningColumn == true)
+                            if (winningColumn)
                             {
                                 UserInterface.WinningColumnMessage();
                                 moneyCount += (userBet * Constants.COLUMN_WINNING_MULTIPLIER);
@@ -117,7 +117,7 @@ namespace Slot_Machine
                             }
                         }
 
-                        if (winningFirstDiagonal == true)
+                        if (winningFirstDiagonal)
                         {
                             UserInterface.WinningDiagonalMessage();
                             moneyCount += (userBet * Constants.DIAGONAL_WINNING_MULTIPIER);
@@ -138,7 +138,7 @@ namespace Slot_Machine
                             }
                         }
 
-                        if (winningSecondDiagonal == true)
+                        if (winningSecondDiagonal)
                         {
                             UserInterface.WinningDiagonalMessage();
                             moneyCount += (userBet * Constants.DIAGONAL_WINNING_MULTIPIER);
@@ -146,7 +146,7 @@ namespace Slot_Machine
                         }
                     }
 
-                    if (losesRound == true)
+                    if (losesRound)
                     {
                         UserInterface.LosingSpinMessage();
                     }
