@@ -30,7 +30,7 @@ namespace Slot_Machine
 
                         if (userBet <= 0)
                         {
-                            UserInterface.BetLessThan1();
+                            Console.WriteLine("Please bet at least $1.\n");
                         }
 
                         else if (userBet > moneyCount)
