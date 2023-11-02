@@ -45,7 +45,7 @@ namespace Slot_Machine
                     moneyCount -= userBet;
                     bool losesRound = true;
 
-                    Console.Clear();
+                    UserInterface.ClearUserOutput();
                     int[,] slotMachine = new int[Constants.ROW_SIZE, Constants.COLUMN_SIZE];
 
                     for (int verticalNumber = 0; verticalNumber < Constants.ROW_SIZE; verticalNumber++)

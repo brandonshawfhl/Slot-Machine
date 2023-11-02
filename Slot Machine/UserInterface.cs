@@ -62,9 +62,14 @@
             return $"\n\n\n You have${moneyCount} left to bet.\n";
         }
 
+        public static void ClearUserOutput()
+        {
+            Console.Clear();
+        }
+
         public static void PrintSlotMachine()
         {
-            
+
         }
     }
 }
