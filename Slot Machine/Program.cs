@@ -25,7 +25,11 @@ namespace Slot_Machine
 
                     while (true)
                     {
-                        UserInterface.BettingRules();
+                        Console.WriteLine("How much money would you like to bet?");
+                        Console.WriteLine($"Bets less than {Constants.COLUMN_BET} will allow you to win only by matching rows.");
+                        Console.WriteLine($"Bets higher than {Constants.COLUMN_BET} will allow you to match columns as well.");
+                        Console.WriteLine($"Bets of at least {Constants.FIRST_DIAGONAL_BET} will allow for the first diagonal");
+                        Console.WriteLine($"and bets of {Constants.SECOND_DIAGONAL_BET} or more will allow for both!");
                         userBet = Convert.ToInt32(Console.ReadLine());
 
                         if (userBet <= 0)
