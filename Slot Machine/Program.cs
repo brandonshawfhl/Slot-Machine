@@ -5,48 +5,21 @@ namespace Slot_Machine
     internal class Program
     {
         public static readonly Random rng = new Random();
+        public static int moneyCount = Constants.STARTING_MONEY;
 
         static void Main(string[] args)
         {
             char playAgain = Constants.USER_YES_CHOICE;
-            int userBet = 0;
 
             //loop for playing the game more than once
             do
             {
                 UserInterface.WelcomeMessage();
                 // loop for running the slots until user runs out of money
-                int moneyCount = Constants.STARTING_MONEY;
+                int userBet = 0;
                 while (moneyCount > 0)
                 {
-                    UserInterface.Write2EmptyLines();
-                    UserInterface.WriteEmptyLine();
-                    UserInterface.MoneyLeft(moneyCount);
-
-                    while (true)
-                    {
-                        Console.WriteLine("How much money would you like to bet?");
-                        Console.WriteLine($"Bets less than {Constants.COLUMN_BET} will allow you to win only by matching rows.");
-                        Console.WriteLine($"Bets higher than {Constants.COLUMN_BET} will allow you to match columns as well.");
-                        Console.WriteLine($"Bets of at least {Constants.FIRST_DIAGONAL_BET} will allow for the first diagonal");
-                        Console.WriteLine($"and bets of {Constants.SECOND_DIAGONAL_BET} or more will allow for both!");
-                        userBet = Convert.ToInt32(Console.ReadLine());
-
-                        if (userBet <= 0)
-                        {
-                            Console.WriteLine("Please bet at least $1.\n");
-                        }
-
-                        else if (userBet > moneyCount)
-                        {
-                            Console.WriteLine("You don't have that much money!\n");
-                        }
-
-                        else
-                        {
-                            break;
-                        }
-                    }
+                    userBet = UserInterface.BetIsValid();
 
                     moneyCount -= userBet;
                     bool losesRound = true;
@@ -158,10 +131,10 @@ namespace Slot_Machine
 
                     if (losesRound)
                     {
+                        UserInterface.Write2EmptyLines();
                         UserInterface.LosingSpinMessage();
                     }
                 }
-
                 UserInterface.UserOutOfMoney();
 
                 Console.WriteLine("\n");

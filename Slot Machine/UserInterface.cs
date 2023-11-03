@@ -26,20 +26,12 @@
 
         public static void LosingSpinMessage()
         {
-            Console.WriteLine($"Sorry. Not this time.");
+            Console.WriteLine($"Sorry. Not this time.\n\n");
         }
 
         public static void UserOutOfMoney()
         {
             Console.WriteLine("Sorry it looks like your are flat broke! You lose!");
-        }
-
-        public static void BettingRules()
-        {
-            Console.WriteLine("How much money would you like to bet?");
-            Console.WriteLine($"Bets less than {Constants.COLUMN_BET} will allow you to win only by matching rows.");
-            Console.WriteLine($"Bets higher than {Constants.COLUMN_BET} will allow you to match columns as well.");
-            Console.WriteLine($"Bets of at least {Constants.FIRST_DIAGONAL_BET} will allow for the first diagonal and bets of {Constants.SECOND_DIAGONAL_BET} or more will allow for both!");
         }
 
         public static string MoneyLeft(int moneyCount)
@@ -61,9 +53,34 @@
             Console.WriteLine("\n\n");
         }
 
-        public static void PrintSlotMachine()
+        public static int BetIsValid()
         {
+            int validBet = 0;
+            while (true)
+            {
+                Console.WriteLine("How much money would you like to bet?");
+                Console.WriteLine($"Bets less than {Constants.COLUMN_BET} will allow you to win only by matching rows.");
+                Console.WriteLine($"Bets higher than {Constants.COLUMN_BET} will allow you to match columns as well.");
+                Console.WriteLine($"Bets of at least {Constants.FIRST_DIAGONAL_BET} will allow for the first diagonal");
+                Console.WriteLine($"and bets of {Constants.SECOND_DIAGONAL_BET} or more will allow for both!");
+                validBet = Convert.ToInt32(Console.ReadLine());
 
+                if (validBet  <= 0)
+                {
+                    Console.WriteLine("Please bet at least $1.\n");
+                }
+
+                else if (validBet > Program.moneyCount)
+                {
+                    Console.WriteLine("You don't have that much money!\n");
+                }
+
+                else
+                {
+                    break;
+                }
+            }
+            return validBet;
         }
     }
 }
