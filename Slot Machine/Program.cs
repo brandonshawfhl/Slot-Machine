@@ -24,7 +24,8 @@ namespace Slot_Machine
                 {
                     userBet = UserInterface.BetIsValid(moneyCount);
 
-                    Logic.SubtractBet(moneyCount, userBet);
+                    moneyCount = Logic.SubtractBet(moneyCount, userBet);
+
                     bool losesRound = true;
 
                     UserInterface.ClearUserOutput();
@@ -45,8 +46,6 @@ namespace Slot_Machine
                     Logic.WinningRound(numberOfWinningRows, losesRound);
                     UserInterface.WinningRowMessage(numberOfWinningRows);
                     
-
-
                     //this section checks for a matching column
                     if (userBet > Constants.COLUMN_BET)
                     {

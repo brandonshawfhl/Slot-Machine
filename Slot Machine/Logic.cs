@@ -30,7 +30,7 @@
                     winningRowCount += 1;
                 }
             }
-            return winningRowCount & moneyCount;
+            return winningRowCount;
         }
 
         public static bool WinningRound(int numberOfWinningMatches, bool losesRound)
@@ -39,7 +39,7 @@
             {
                 losesRound = false;
             }
-            return losesRound;
+            return !losesRound;
         }
     }
 }
