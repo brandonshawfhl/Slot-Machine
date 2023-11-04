@@ -30,7 +30,16 @@
                     winningRowCount += 1;
                 }
             }
-            return &(winningRowCount, moneyCount);
+            return winningRowCount & moneyCount;
+        }
+
+        public static bool WinningRound(int numberOfWinningMatches, bool losesRound)
+        {
+            if (numberOfWinningMatches > 0)
+            {
+                losesRound = false;
+            }
+            return losesRound;
         }
     }
 }

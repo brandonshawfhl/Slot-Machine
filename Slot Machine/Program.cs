@@ -42,14 +42,10 @@ namespace Slot_Machine
                     //this section checks for a matching row
                     int numberOfWinningRows = 0;
                     numberOfWinningRows = Logic.CheckForWinningRows(slotMachine, userBet, moneyCount);
-
+                    Logic.WinningRound(numberOfWinningRows, losesRound);
                     UserInterface.WinningRowMessage(numberOfWinningRows);
-                    UserInterface.WinningMultipleRowsMessage(numberOfWinningRows);
+                    
 
-                    if (numberOfWinningRows > 0)
-                    {
-                        losesRound = false;
-                    }
 
                     //this section checks for a matching column
                     if (userBet > Constants.COLUMN_BET)

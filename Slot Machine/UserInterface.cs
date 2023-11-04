@@ -16,11 +16,8 @@
                 Console.WriteLine("\n\n");
                 Console.WriteLine($"Congratulations! You matched a row!");
             }
-        }
 
-        public static void WinningMultipleRowsMessage(int numberOfWinningRows)
-        {
-            if (numberOfWinningRows > 1)
+            else if (numberOfWinningRows > 1)
             {
                 Console.WriteLine("\n\n");
                 Console.WriteLine($"Congratulations! You matched multiple rows!");
