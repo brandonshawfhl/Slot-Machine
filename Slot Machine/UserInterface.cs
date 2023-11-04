@@ -53,7 +53,7 @@
             Console.WriteLine("\n\n");
         }
 
-        public static int BetIsValid()
+        public static int BetIsValid(int moneyCount)
         {
             int validBet = 0;
             while (true)
@@ -70,7 +70,7 @@
                     Console.WriteLine("Please bet at least $1.\n");
                 }
 
-                else if (validBet > Program.moneyCount)
+                else if (validBet > moneyCount)
                 {
                     Console.WriteLine("You don't have that much money!\n");
                 }

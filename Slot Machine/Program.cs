@@ -17,6 +17,7 @@ namespace Slot_Machine
                 UserInterface.WelcomeMessage();
                 // loop for running the slots until user runs out of money
                 int userBet = 0;
+                moneyCount = Constants.STARTING_MONEY;
                 while (moneyCount > 0)
                 {
                     userBet = UserInterface.BetIsValid();
