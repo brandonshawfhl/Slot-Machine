@@ -40,26 +40,11 @@ namespace Slot_Machine
                     }
 
                     //this section checks for a matching row
-                    for (int rowNumber = 0; rowNumber < Constants.ROW_SIZE; rowNumber++)
-                    {
-                        bool winningRow = true;
-                        for (int columnNumber = 1; columnNumber < Constants.COLUMN_SIZE; columnNumber++)
-                        {
-                            if (slotMachine[rowNumber, 0] != slotMachine[rowNumber, columnNumber])
-                            {
-                                winningRow = false;
-                                break;
-                            }
-                        }
+                    int numberOfWinningRows = 0;
+                    numberOfWinningRows = Logic.CheckForWinningRows(slotMachine, userBet, moneyCount, losesRound);
 
-                        if (winningRow)
-                        {
-                            UserInterface.Write2EmptyLines();
-                            UserInterface.WinningRowMessage();
-                            moneyCount += (userBet * Constants.ROW_WINNING_MULTIPLIER);
-                            losesRound = false;
-                        }
-                    }
+                    UserInterface.WinningRowMessage(numberOfWinningRows);
+                    UserInterface.WinningMultipleRowsMessage(numberOfWinningRows);
 
                     //this section checks for a matching column
                     if (userBet > Constants.COLUMN_BET)

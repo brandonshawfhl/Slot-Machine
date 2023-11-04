@@ -9,9 +9,22 @@
             Console.WriteLine("Play to win big!");
         }
 
-        public static void WinningRowMessage()
+        public static void WinningRowMessage(int numberOfWinningRows)
         {
-            Console.WriteLine($"Congratulations! You matched a row!");
+            if (numberOfWinningRows == 1)
+            {
+                Console.WriteLine("\n\n");
+                Console.WriteLine($"Congratulations! You matched a row!");
+            }
+        }
+
+        public static void WinningMultipleRowsMessage(int numberOfWinningRows)
+        {
+            if (numberOfWinningRows > 1)
+            {
+                Console.WriteLine("\n\n");
+                Console.WriteLine($"Congratulations! You matched multiple rows!");
+            }
         }
 
         public static void WinningColumnMessage()

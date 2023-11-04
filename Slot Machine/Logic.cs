@@ -7,5 +7,31 @@
             moneyCount -= userBet;
             return moneyCount;
         }
+
+        public static int CheckForWinningRows(int[,] slotMachine, int moneyCount, int userBet, bool losesRound)
+        {
+            int winningRowCount = 0;
+            bool winningRow;
+            for (int rowNumber = 0; rowNumber < Constants.ROW_SIZE; rowNumber++)
+            {
+                winningRow = true;
+                for (int columnNumber = 1; columnNumber < Constants.COLUMN_SIZE; columnNumber++)
+                {
+                    if (slotMachine[rowNumber, 0] != slotMachine[rowNumber, columnNumber])
+                    {
+                        winningRow = false;
+                        break;
+                    }
+                }
+
+                if (winningRow)
+                {
+                    moneyCount += (userBet * Constants.ROW_WINNING_MULTIPLIER);
+                    losesRound = false;
+                    winningRowCount += 1;
+                }
+            }
+            return winningRowCount;
+        }
     }
 }
