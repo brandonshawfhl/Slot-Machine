@@ -8,7 +8,7 @@
             return moneyCount;
         }
 
-        public static int CheckForWinningRows(int[,] slotMachine, int moneyCount, int userBet, bool losesRound)
+        public static int CheckForWinningRows(int[,] slotMachine, int moneyCount, int userBet)
         {
             int winningRowCount = 0;
             bool winningRow;
@@ -27,11 +27,10 @@
                 if (winningRow)
                 {
                     moneyCount += (userBet * Constants.ROW_WINNING_MULTIPLIER);
-                    losesRound = false;
                     winningRowCount += 1;
                 }
             }
-            return winningRowCount;
+            return &(winningRowCount, moneyCount);
         }
     }
 }
