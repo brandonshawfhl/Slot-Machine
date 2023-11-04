@@ -5,11 +5,12 @@ namespace Slot_Machine
     internal class Program
     {
         public static readonly Random rng = new Random();
-        public static int moneyCount = Constants.STARTING_MONEY;
 
         static void Main(string[] args)
         {
             char playAgain = Constants.USER_YES_CHOICE;
+
+            int[,] slotMachine = new int[Constants.ROW_SIZE, Constants.COLUMN_SIZE];
 
             //loop for playing the game more than once
             do
@@ -17,16 +18,16 @@ namespace Slot_Machine
                 UserInterface.WelcomeMessage();
                 // loop for running the slots until user runs out of money
                 int userBet = 0;
+                int moneyCount = Constants.STARTING_MONEY;
                 moneyCount = Constants.STARTING_MONEY;
                 while (moneyCount > 0)
                 {
-                    userBet = UserInterface.BetIsValid();
+                    userBet = UserInterface.BetIsValid(moneyCount);
 
                     moneyCount -= userBet;
                     bool losesRound = true;
 
                     UserInterface.ClearUserOutput();
-                    int[,] slotMachine = new int[Constants.ROW_SIZE, Constants.COLUMN_SIZE];
 
                     for (int verticalNumber = 0; verticalNumber < Constants.ROW_SIZE; verticalNumber++)
                     {
