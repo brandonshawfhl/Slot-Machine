@@ -2,9 +2,10 @@
 {
     internal class Logic
     {
-        public static void CheckForValidBet()
+        public static int SubtractBet(int moneyCount, int userBet)
         {
-            
+            moneyCount -= userBet;
+            return moneyCount;
         }
     }
 }

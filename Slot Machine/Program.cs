@@ -16,15 +16,15 @@ namespace Slot_Machine
             do
             {
                 UserInterface.WelcomeMessage();
-                // loop for running the slots until user runs out of money
                 int userBet = 0;
                 int moneyCount = Constants.STARTING_MONEY;
                 moneyCount = Constants.STARTING_MONEY;
+                // loop for running the slots until user runs out of money
                 while (moneyCount > 0)
                 {
                     userBet = UserInterface.BetIsValid(moneyCount);
 
-                    moneyCount -= userBet;
+                    Logic.SubtractBet(moneyCount, userBet);
                     bool losesRound = true;
 
                     UserInterface.ClearUserOutput();
