@@ -41,35 +41,14 @@ namespace Slot_Machine
                     }
 
                     //this section checks for a matching row
-                    int numberOfWinningRows = 0;
-                    numberOfWinningRows = Logic.CheckForWinningRows(slotMachine, userBet, moneyCount);
+                    int numberOfWinningRows = Logic.CheckForWinningRows(slotMachine, userBet, moneyCount);
                     Logic.WinningRound(numberOfWinningRows, losesRound);
                     UserInterface.WinningRowMessage(numberOfWinningRows);
-                    
-                    //this section checks for a matching column
-                    if (userBet > Constants.COLUMN_BET)
-                    {
-                        for (int columnNumber = 0; columnNumber < Constants.COLUMN_SIZE; columnNumber++)
-                        {
-                            bool winningColumn = true;
-                            for (int rowNumber = 1; rowNumber < Constants.ROW_SIZE; rowNumber++)
-                            {
-                                if (slotMachine[0, columnNumber] != slotMachine[rowNumber, columnNumber])
-                                {
-                                    winningColumn = false;
-                                    break;
-                                }
-                            }
 
-                            if (winningColumn)
-                            {
-                                UserInterface.Write2EmptyLines();
-                                UserInterface.WinningColumnMessage();
-                                moneyCount += (userBet * Constants.COLUMN_WINNING_MULTIPLIER);
-                                losesRound = false;
-                            }
-                        }
-                    }
+                    //this section checks for a matching column
+                    int numberOfWinningColumns = Logic.CheckForWinningColumns(slotMachine, moneyCount, userBet);
+                    Logic.WinningRound(numberOfWinningColumns, losesRound);
+                    UserInterface.WinningColumnMessage(numberOfWinningColumns);
 
                     //this section checks for the first way to match a diagonal (upper left to lower right)
                     if (userBet >= Constants.FIRST_DIAGONAL_BET)

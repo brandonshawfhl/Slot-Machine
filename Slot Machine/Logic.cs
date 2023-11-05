@@ -41,5 +41,32 @@
             }
             return !losesRound;
         }
+        public static int CheckForWinningColumns(int[,] slotMachine, int moneyCount, int userBet)
+        {
+            int winningColumnCount = 0;
+            bool winningColumn;
+            if (userBet > Constants.COLUMN_BET)
+            {
+                for (int columnNumber = 0; columnNumber < Constants.COLUMN_SIZE; columnNumber++)
+                {
+                    winningColumn = true;
+                    for (int rowNumber = 1; rowNumber < Constants.ROW_SIZE; rowNumber++)
+                    {
+                        if (slotMachine[0, columnNumber] != slotMachine[rowNumber, columnNumber])
+                        {
+                            winningColumn = false;
+                            break;
+                        }
+                    }
+
+                    if (winningColumn)
+                    {
+                        moneyCount += (userBet * Constants.COLUMN_WINNING_MULTIPLIER);
+                        winningColumnCount += 1;
+                    }
+                }
+            }
+            return winningColumnCount;
+        }
     }
 }

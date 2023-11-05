@@ -24,9 +24,19 @@
             }
         }
 
-        public static void WinningColumnMessage()
+        public static void WinningColumnMessage(int numberOfWinningColumns)
         {
-            Console.WriteLine($"Congratulations! You matched a column!");
+            if (numberOfWinningColumns == 1)
+            {
+                Console.WriteLine("\n\n");
+                Console.WriteLine($"Congratulations! You matched a column!");
+            }
+            
+            else if (numberOfWinningColumns == 1)
+            {
+                Console.WriteLine("\n\n");
+                Console.WriteLine($"Congratulations! You matched multiple columns!");
+            }
         }
 
         public static void WinningDiagonalMessage()
@@ -58,7 +68,8 @@
         {
             Console.WriteLine("\n");
 
-        } public static void Write2EmptyLines()
+        }
+        public static void Write2EmptyLines()
         {
             Console.WriteLine("\n\n");
         }
@@ -75,7 +86,7 @@
                 Console.WriteLine($"and bets of {Constants.SECOND_DIAGONAL_BET} or more will allow for both!");
                 validBet = Convert.ToInt32(Console.ReadLine());
 
-                if (validBet  <= 0)
+                if (validBet <= 0)
                 {
                     Console.WriteLine("Please bet at least $1.\n");
                 }
@@ -93,6 +104,6 @@
             return validBet;
         }
 
-        
+
     }
 }
