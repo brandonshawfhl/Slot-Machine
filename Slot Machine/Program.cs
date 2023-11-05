@@ -15,7 +15,7 @@ namespace Slot_Machine
             //loop for playing the game more than once
             do
             {
-                UserInterface.WelcomeMessage();
+                UserInterface.WriteWelcomeMessage();
                 int userBet = 0;
                 int moneyCount = Constants.STARTING_MONEY;
                 moneyCount = Constants.STARTING_MONEY;
@@ -23,7 +23,6 @@ namespace Slot_Machine
                 while (moneyCount > 0)
                 {
                     userBet = UserInterface.BetIsValid(moneyCount);
-
                     moneyCount -= userBet;
 
                     bool losesRound = true;
@@ -42,18 +41,18 @@ namespace Slot_Machine
 
                     //this section checks for a matching row
                     int numberOfWinningRows = Logic.CheckForWinningRows(slotMachine, userBet, moneyCount);
-                    Logic.WinningRound(numberOfWinningRows, losesRound);
-                    UserInterface.WinningRowMessage(numberOfWinningRows);
+                    Logic.CheckForWinningRound(numberOfWinningRows, losesRound);
+                    UserInterface.WriteWinningRowMessage(numberOfWinningRows);
 
                     //this section checks for a matching column
                     int numberOfWinningColumns = Logic.CheckForWinningColumns(slotMachine, moneyCount, userBet);
-                    Logic.WinningRound(numberOfWinningColumns, losesRound);
-                    UserInterface.WinningColumnMessage(numberOfWinningColumns);
+                    Logic.CheckForWinningRound(numberOfWinningColumns, losesRound);
+                    UserInterface.WriteWinningColumnMessage(numberOfWinningColumns);
 
                     //this section checks for the first way to match a diagonal (upper left to lower right)
                     int numberOfWinningFirstDiagonals = Logic.CheckForWinningFirstDiagonal(slotMachine, moneyCount, userBet);
-                    Logic.WinningRound(numberOfWinningFirstDiagonals, losesRound);
-                    UserInterface.WinningDiagonalMessage();
+                    Logic.CheckForWinningRound(numberOfWinningFirstDiagonals, losesRound);
+                    UserInterface.WriteWinningDiagonalMessage();
 
                     //this section checks for the second way to match a diagonal (upper right to lower left)
                     if (userBet >= Constants.SECOND_DIAGONAL_BET)
@@ -71,7 +70,7 @@ namespace Slot_Machine
                         if (winningSecondDiagonal)
                         {
                             UserInterface.Write2EmptyLines();
-                            UserInterface.WinningDiagonalMessage();
+                            UserInterface.WriteWinningDiagonalMessage();
                             moneyCount += (userBet * Constants.DIAGONAL_WINNING_MULTIPIER);
                             losesRound = false;
                         }
@@ -80,10 +79,10 @@ namespace Slot_Machine
                     if (losesRound)
                     {
                         UserInterface.Write2EmptyLines();
-                        UserInterface.LosingSpinMessage();
+                        UserInterface.WriteLosingSpinMessage();
                     }
                 }
-                UserInterface.UserOutOfMoney();
+                UserInterface.WriteUserOutOfMoneyMessage();
 
                 Console.WriteLine("\n");
                 Console.WriteLine($"Would you like to play again?({Constants.USER_YES_CHOICE} or press any other key to exit the program)\n");

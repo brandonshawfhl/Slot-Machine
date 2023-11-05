@@ -27,7 +27,7 @@
             return winningRowCount;
         }
 
-        public static bool WinningRound(int numberOfWinningMatches, bool losesRound)
+        public static bool CheckForWinningRound(int numberOfWinningMatches, bool losesRound)
         {
             if (numberOfWinningMatches > 0)
             {

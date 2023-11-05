@@ -2,14 +2,14 @@
 {
     internal class UserInterface
     {
-        public static void WelcomeMessage()
+        public static void WriteWelcomeMessage()
         {
             Console.Clear();
             Console.WriteLine("Welcome to Virtual Slot Machine!");
             Console.WriteLine("Play to win big!");
         }
 
-        public static void WinningRowMessage(int numberOfWinningRows)
+        public static void WriteWinningRowMessage(int numberOfWinningRows)
         {
             if (numberOfWinningRows == 1)
             {
@@ -24,7 +24,7 @@
             }
         }
 
-        public static void WinningColumnMessage(int numberOfWinningColumns)
+        public static void WriteWinningColumnMessage(int numberOfWinningColumns)
         {
             if (numberOfWinningColumns == 1)
             {
@@ -39,22 +39,22 @@
             }
         }
 
-        public static void WinningDiagonalMessage()
+        public static void WriteWinningDiagonalMessage()
         {
             Console.WriteLine($"Congratulations! You matched a diagonal!");
         }
 
-        public static void LosingSpinMessage()
+        public static void WriteLosingSpinMessage()
         {
             Console.WriteLine($"Sorry. Not this time.\n\n");
         }
 
-        public static void UserOutOfMoney()
+        public static void WriteUserOutOfMoneyMessage()
         {
             Console.WriteLine("Sorry it looks like your are flat broke! You lose!");
         }
 
-        public static string MoneyLeft(int moneyCount)
+        public static string WriteMoneyLeftMessage(int moneyCount)
         {
             return $"You have${moneyCount} left to bet.\n";
         }
