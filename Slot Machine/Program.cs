@@ -24,7 +24,7 @@ namespace Slot_Machine
                 {
                     userBet = UserInterface.BetIsValid(moneyCount);
 
-                    moneyCount = Logic.SubtractBet(moneyCount, userBet);
+                    moneyCount -= userBet;
 
                     bool losesRound = true;
 

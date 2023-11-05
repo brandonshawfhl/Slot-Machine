@@ -2,12 +2,6 @@
 {
     internal class Logic
     {
-        public static int SubtractBet(int moneyCount, int userBet)
-        {
-            moneyCount -= userBet;
-            return moneyCount;
-        }
-
         public static int CheckForWinningRows(int[,] slotMachine, int moneyCount, int userBet)
         {
             int winningRowCount = 0;
