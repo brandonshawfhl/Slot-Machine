@@ -68,5 +68,31 @@
             }
             return winningColumnCount;
         }
+
+        public static int CheckForWinningFirstDiagonal(int[,] slotMachine, int moneyCount, int userBet)
+        {
+            int winningFirstDiagonalCount = 0;
+            bool winningFirstDiagonal;
+            if (userBet >= Constants.FIRST_DIAGONAL_BET)
+            {
+                winningFirstDiagonal = true;
+                for (int diagonalNumber = 1; diagonalNumber < Constants.DIAGONAL_SIZE; diagonalNumber++)
+                {
+
+                    if (slotMachine[0, 0] != slotMachine[diagonalNumber, diagonalNumber])
+                    {
+                        winningFirstDiagonal = false;
+                        break;
+                    }
+                }
+
+                if (winningFirstDiagonal)
+                {
+                    moneyCount += (userBet * Constants.DIAGONAL_WINNING_MULTIPIER);
+                    winningFirstDiagonalCount = +1;
+                }
+            }
+            return winningFirstDiagonalCount;
+        }
     }
 }

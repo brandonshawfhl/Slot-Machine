@@ -51,27 +51,9 @@ namespace Slot_Machine
                     UserInterface.WinningColumnMessage(numberOfWinningColumns);
 
                     //this section checks for the first way to match a diagonal (upper left to lower right)
-                    if (userBet >= Constants.FIRST_DIAGONAL_BET)
-                    {
-                        bool winningFirstDiagonal = true;
-                        for (int diagonalNumber = 1; diagonalNumber < Constants.DIAGONAL_SIZE; diagonalNumber++)
-                        {
-
-                            if (slotMachine[0, 0] != slotMachine[diagonalNumber, diagonalNumber])
-                            {
-                                winningFirstDiagonal = false;
-                                break;
-                            }
-                        }
-
-                        if (winningFirstDiagonal)
-                        {
-                            UserInterface.Write2EmptyLines();
-                            UserInterface.WinningDiagonalMessage();
-                            moneyCount += (userBet * Constants.DIAGONAL_WINNING_MULTIPIER);
-                            losesRound = false;
-                        }
-                    }
+                    int numberOfWinningFirstDiagonals = Logic.CheckForWinningFirstDiagonal(slotMachine, moneyCount, userBet);
+                    Logic.WinningRound(numberOfWinningFirstDiagonals, losesRound);
+                    UserInterface.WinningDiagonalMessage();
 
                     //this section checks for the second way to match a diagonal (upper right to lower left)
                     if (userBet >= Constants.SECOND_DIAGONAL_BET)
