@@ -27,13 +27,14 @@
             return winningRowCount;
         }
 
-        public static bool CheckForWinningRound(int numberOfWinningMatches, bool losesRound)
+        public static bool CheckForWinningRound(int numberOfWinningMatches)
         {
+            bool losingRound = true;
             if (numberOfWinningMatches > 0)
             {
-                losesRound = false;
+                losingRound = false;
             }
-            return !losesRound;
+            return !losingRound;
         }
         public static int CheckForWinningColumns(int[,] slotMachine, int moneyCount, int userBet)
         {

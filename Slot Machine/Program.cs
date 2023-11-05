@@ -41,17 +41,17 @@ namespace Slot_Machine
 
                     //this section checks for a matching row
                     int numberOfWinningRows = Logic.CheckForWinningRows(slotMachine, userBet, moneyCount);
-                    Logic.CheckForWinningRound(numberOfWinningRows, losesRound);
+                    losesRound = Logic.CheckForWinningRound(numberOfWinningRows);
                     UserInterface.WriteWinningRowMessage(numberOfWinningRows);
 
                     //this section checks for a matching column
                     int numberOfWinningColumns = Logic.CheckForWinningColumns(slotMachine, moneyCount, userBet);
-                    Logic.CheckForWinningRound(numberOfWinningColumns, losesRound);
+                    losesRound = Logic.CheckForWinningRound(numberOfWinningColumns);
                     UserInterface.WriteWinningColumnMessage(numberOfWinningColumns);
 
                     //this section checks for the first way to match a diagonal (upper left to lower right)
                     int numberOfWinningFirstDiagonals = Logic.CheckForWinningFirstDiagonal(slotMachine, moneyCount, userBet);
-                    Logic.CheckForWinningRound(numberOfWinningFirstDiagonals, losesRound);
+                    losesRound = Logic.CheckForWinningRound(numberOfWinningFirstDiagonals);
                     UserInterface.WriteWinningDiagonalMessage();
 
                     //this section checks for the second way to match a diagonal (upper right to lower left)
