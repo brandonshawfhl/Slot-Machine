@@ -58,11 +58,7 @@ namespace Slot_Machine
                     losesRound = Logic.CheckForWinningRound(numberOfWinningFirstDiagonals);
                     UserInterface.WriteWinningDiagonalMessage();
 
-                    if (losesRound)
-                    {
-                        UserInterface.Write2EmptyLines();
-                        UserInterface.WriteLosingSpinMessage();
-                    }
+                    UserInterface.WriteLosingSpinMessage(losesRound);
                 }
                 UserInterface.WriteUserOutOfMoneyMessage();
 

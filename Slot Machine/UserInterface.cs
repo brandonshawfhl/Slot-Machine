@@ -31,7 +31,7 @@
                 Console.WriteLine("\n\n");
                 Console.WriteLine($"Congratulations! You matched a column!");
             }
-            
+
             else if (numberOfWinningColumns == 1)
             {
                 Console.WriteLine("\n\n");
@@ -41,12 +41,17 @@
 
         public static void WriteWinningDiagonalMessage()
         {
+            Console.WriteLine("\n\n");
             Console.WriteLine($"Congratulations! You matched a diagonal!");
         }
 
-        public static void WriteLosingSpinMessage()
+        public static void WriteLosingSpinMessage(bool losesRound)
         {
-            Console.WriteLine($"Sorry. Not this time.\n\n");
+            if (losesRound)
+            {
+                Console.WriteLine("\n\n");
+                Console.WriteLine($"Sorry. Not this time.\n\n");
+            }
         }
 
         public static void WriteUserOutOfMoneyMessage()
