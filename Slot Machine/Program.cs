@@ -1,6 +1,4 @@
-﻿using System.Diagnostics;
-
-namespace Slot_Machine
+﻿namespace Slot_Machine
 {
     internal class Program
     {
@@ -62,9 +60,7 @@ namespace Slot_Machine
                 }
                 UserInterface.WriteUserOutOfMoneyMessage();
 
-                Console.WriteLine("\n");
-                Console.WriteLine($"Would you like to play again?({Constants.USER_YES_CHOICE} or press any other key to exit the program)\n");
-                playAgain = Char.ToUpper(Console.ReadKey(true).KeyChar);
+                playAgain = UserInterface.CheckIfUserWantsToPlayAgain();
             } while (playAgain == Constants.USER_YES_CHOICE);
         }
     }

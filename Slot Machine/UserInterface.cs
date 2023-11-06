@@ -109,6 +109,10 @@
             return validBet;
         }
 
+        public static char CheckIfUserWantsToPlayAgain();
+        {}
 
-    }
+
 }
+}
+
