@@ -9,7 +9,6 @@ namespace Slot_Machine
         static void Main(string[] args)
         {
             char playAgain = Constants.USER_YES_CHOICE;
-
             int[,] slotMachine = new int[Constants.ROW_SIZE, Constants.COLUMN_SIZE];
 
             //loop for playing the game more than once
@@ -55,26 +54,9 @@ namespace Slot_Machine
                     UserInterface.WriteWinningDiagonalMessage();
 
                     //this section checks for the second way to match a diagonal (upper right to lower left)
-                    if (userBet >= Constants.SECOND_DIAGONAL_BET)
-                    {
-                        bool winningSecondDiagonal = true;
-                        for (int diagonalNumber = 1; diagonalNumber < Constants.ROW_SIZE; diagonalNumber++)
-                        {
-                            if (slotMachine[0, (Constants.ROW_SIZE - 1)] != slotMachine[diagonalNumber, Constants.ROW_SIZE - 1 - diagonalNumber])
-                            {
-                                winningSecondDiagonal = false;
-                                break;
-                            }
-                        }
-
-                        if (winningSecondDiagonal)
-                        {
-                            UserInterface.Write2EmptyLines();
-                            UserInterface.WriteWinningDiagonalMessage();
-                            moneyCount += (userBet * Constants.DIAGONAL_WINNING_MULTIPIER);
-                            losesRound = false;
-                        }
-                    }
+                    int numberOfWinningSecondDiagonals = Logic.CheckForWinningSecondDiagonal(slotMachine, moneyCount, userBet);
+                    losesRound = Logic.CheckForWinningRound(numberOfWinningFirstDiagonals);
+                    UserInterface.WriteWinningDiagonalMessage();
 
                     if (losesRound)
                     {

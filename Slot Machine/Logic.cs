@@ -84,10 +84,34 @@
                 if (winningFirstDiagonal)
                 {
                     moneyCount += (userBet * Constants.DIAGONAL_WINNING_MULTIPIER);
-                    winningFirstDiagonalCount = +1;
+                    winningFirstDiagonalCount += 1;
                 }
             }
             return winningFirstDiagonalCount;
+        }
+        public static int CheckForWinningSecondDiagonal(int[,] slotMachine, int moneyCount, int userBet)
+        {
+            int winningSecondDiagonalCount = 0;
+            bool winningSecondDiagonal = true;
+            if (userBet >= Constants.SECOND_DIAGONAL_BET)
+            {
+                winningSecondDiagonal = true;
+                for (int diagonalNumber = 1; diagonalNumber < Constants.ROW_SIZE; diagonalNumber++)
+                {
+                    if (slotMachine[0, (Constants.ROW_SIZE - 1)] != slotMachine[diagonalNumber, Constants.ROW_SIZE - 1 - diagonalNumber])
+                    {
+                        winningSecondDiagonal = false;
+                        break;
+                    }
+                }
+
+                if (winningSecondDiagonal)
+                {
+                    moneyCount += (userBet * Constants.DIAGONAL_WINNING_MULTIPIER);
+                    winningSecondDiagonalCount += 1;
+                }
+            }
+            return winningSecondDiagonalCount;
         }
     }
 }
