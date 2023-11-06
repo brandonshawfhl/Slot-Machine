@@ -114,4 +114,15 @@
             return winningSecondDiagonalCount;
         }
     }
+    public static void PopulateSlotMachine(int[,] slotMachine)
+    {
+
+        for (int verticalNumber = 0; verticalNumber < Constants.ROW_SIZE; verticalNumber++)
+        {
+            for (int horizontalNumber = 0; horizontalNumber < Constants.COLUMN_SIZE; horizontalNumber++)
+            {
+                slotMachine[verticalNumber, horizontalNumber] = Program.rng.Next(0, Constants.RANDOM_MAX);
+            }
+        }
+    }
 }

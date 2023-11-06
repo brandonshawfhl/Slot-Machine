@@ -109,10 +109,16 @@
             return validBet;
         }
 
-        public static char CheckIfUserWantsToPlayAgain();
-        {}
+        public static char CheckIfUserWantsToPlayAgain()
+        {
+            Console.WriteLine("\n");
+            Console.WriteLine($"Would you like to play again?({Constants.USER_YES_CHOICE} or press any other key to exit the program)\n");
+            char wantsToPlayAgain = Char.ToUpper(Console.ReadKey(true).KeyChar);
+            return wantsToPlayAgain;
+        }
 
 
-}
+
+    }
 }
 
