@@ -53,7 +53,7 @@
             if (losesRound)
             {
                 Console.WriteLine("\n\n");
-                Console.WriteLine($"Sorry. Not this time.\n\n");
+                Console.WriteLine($"Sorry. Not this time.\n");
             }
         }
 

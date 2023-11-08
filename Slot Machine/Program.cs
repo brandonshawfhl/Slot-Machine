@@ -21,9 +21,8 @@
                 {
                     userBet = UserInterface.BetIsValid(moneyCount);
                     moneyCount -= userBet;
-                    int numberOfWinningMatches = 0;
-
-                    bool losesRound = true;
+                    
+                    bool losesRound;
 
                     UserInterface.ClearUserOutput();
 
