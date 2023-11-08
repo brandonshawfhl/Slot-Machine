@@ -89,6 +89,7 @@
             }
             return winningFirstDiagonalCount;
         }
+
         public static int CheckForWinningSecondDiagonal(int[,] slotMachine, int moneyCount, int userBet)
         {
             int winningSecondDiagonalCount = 0;
@@ -113,15 +114,16 @@
             }
             return winningSecondDiagonalCount;
         }
-    }
-    public static void PopulateSlotMachine(int[,] slotMachine)
-    {
 
-        for (int verticalNumber = 0; verticalNumber < Constants.ROW_SIZE; verticalNumber++)
+        public static void PopulateSlotMachine(int[,] slotMachine)
         {
-            for (int horizontalNumber = 0; horizontalNumber < Constants.COLUMN_SIZE; horizontalNumber++)
+
+            for (int verticalNumber = 0; verticalNumber < Constants.ROW_SIZE; verticalNumber++)
             {
-                slotMachine[verticalNumber, horizontalNumber] = Program.rng.Next(0, Constants.RANDOM_MAX);
+                for (int horizontalNumber = 0; horizontalNumber < Constants.COLUMN_SIZE; horizontalNumber++)
+                {
+                    slotMachine[verticalNumber, horizontalNumber] = Program.rng.Next(0, Constants.RANDOM_MAX);
+                }
             }
         }
     }

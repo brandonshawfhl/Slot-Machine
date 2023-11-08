@@ -117,8 +117,17 @@
             return wantsToPlayAgain;
         }
 
-
-
+        public static void WriteSlotMachine(int[,] slotMachine)
+        {
+            for (int verticalNumber = 0; verticalNumber < Constants.ROW_SIZE; verticalNumber++)
+            {
+                Console.Write("\n\t");
+                for (int horizontalNumber = 0; horizontalNumber < Constants.COLUMN_SIZE; horizontalNumber++)
+                {
+                    Console.Write(slotMachine[verticalNumber, horizontalNumber]);
+                }
+            }
+        }
     }
 }
 

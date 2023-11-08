@@ -26,15 +26,8 @@
 
                     UserInterface.ClearUserOutput();
 
-                    for (int verticalNumber = 0; verticalNumber < Constants.ROW_SIZE; verticalNumber++)
-                    {
-                        Console.Write("\n\t");
-                        for (int horizontalNumber = 0; horizontalNumber < Constants.COLUMN_SIZE; horizontalNumber++)
-                        {
-                            slotMachine[verticalNumber, horizontalNumber] = Program.rng.Next(0, Constants.RANDOM_MAX);
-                            Console.Write(slotMachine[verticalNumber, horizontalNumber]);
-                        }
-                    }
+                    Logic.PopulateSlotMachine(slotMachine);
+                    UserInterface.WriteSlotMachine(slotMachine);
 
                     //this section checks for a matching row
                     int numberOfWinningRows = Logic.CheckForWinningRows(slotMachine, userBet, moneyCount);
