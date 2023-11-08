@@ -21,6 +21,7 @@
                 {
                     userBet = UserInterface.BetIsValid(moneyCount);
                     moneyCount -= userBet;
+                    int numberOfWinningMatches = 0;
 
                     bool losesRound = true;
 
@@ -46,7 +47,7 @@
 
                     //this section checks for the second way to match a diagonal (upper right to lower left)
                     int numberOfWinningSecondDiagonals = Logic.CheckForWinningSecondDiagonal(slotMachine, moneyCount, userBet);
-                    losesRound = Logic.CheckForWinningRound(numberOfWinningFirstDiagonals);
+                    losesRound = Logic.CheckForWinningRound(numberOfWinningSecondDiagonals);
                     UserInterface.WriteWinningDiagonalMessage(numberOfWinningSecondDiagonals);
 
                     UserInterface.WriteLosingSpinMessage(losesRound);

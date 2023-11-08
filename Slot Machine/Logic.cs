@@ -34,7 +34,7 @@
             {
                 losingRound = false;
             }
-            return !losingRound;
+            return losingRound;
         }
         public static int CheckForWinningColumns(int[,] slotMachine, int moneyCount, int userBet)
         {

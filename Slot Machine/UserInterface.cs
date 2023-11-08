@@ -72,16 +72,6 @@
             Console.Clear();
         }
 
-        public static void WriteEmptyLine()
-        {
-            Console.WriteLine("\n");
-
-        }
-        public static void Write2EmptyLines()
-        {
-            Console.WriteLine("\n\n");
-        }
-
         public static int BetIsValid(int moneyCount)
         {
             int validBet = 0;
