@@ -39,10 +39,13 @@
             }
         }
 
-        public static void WriteWinningDiagonalMessage()
+        public static void WriteWinningDiagonalMessage(int numberOfWinningDiagonals)
         {
-            Console.WriteLine("\n\n");
-            Console.WriteLine($"Congratulations! You matched a diagonal!");
+            if (numberOfWinningDiagonals == 1)
+            {
+                Console.WriteLine("\n\n");
+                Console.WriteLine($"Congratulations! You matched a diagonal!");
+            }
         }
 
         public static void WriteLosingSpinMessage(bool losesRound)
