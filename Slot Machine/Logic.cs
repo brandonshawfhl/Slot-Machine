@@ -62,7 +62,7 @@
             return winningColumnCount;
         }
 
-        public static int CheckForWinningFirstDiagonal(int[,] slotMachine, int moneyCount, int userBet)
+        public static int CheckForWinningFirstDiagonal(int[,] slotMachine, int userBet)
         {
             int winningFirstDiagonalCount = 0;
             bool winningFirstDiagonal;
@@ -81,7 +81,6 @@
 
                 if (winningFirstDiagonal)
                 {
-                    moneyCount += (userBet * Constants.DIAGONAL_WINNING_MULTIPIER);
                     winningFirstDiagonalCount += 1;
                 }
             }

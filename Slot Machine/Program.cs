@@ -48,9 +48,13 @@
                     }
 
                     //this section checks for the first way to match a diagonal (upper left to lower right)
-                    int numberOfWinningFirstDiagonals = Logic.CheckForWinningFirstDiagonal(slotMachine, moneyCount, userBet);
+                    int numberOfWinningFirstDiagonals = Logic.CheckForWinningFirstDiagonal(slotMachine, userBet);
                     losesRound = Logic.CheckForWinningRound(numberOfWinningFirstDiagonals);
                     UserInterface.WriteWinningDiagonalMessage(numberOfWinningFirstDiagonals);
+                    if (numberOfWinningFirstDiagonals > 0)
+                    {
+                        moneyCount += (userBet * Constants.DIAGONAL_WINNING_MULTIPIER);
+                    }
 
                     //this section checks for the second way to match a diagonal (upper right to lower left)
                     int numberOfWinningSecondDiagonals = Logic.CheckForWinningSecondDiagonal(slotMachine, moneyCount, userBet);
