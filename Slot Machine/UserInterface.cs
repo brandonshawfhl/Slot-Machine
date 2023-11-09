@@ -32,7 +32,7 @@
                 Console.WriteLine($"Congratulations! You matched a column!");
             }
 
-            else if (numberOfWinningColumns == 1)
+            else if (numberOfWinningColumns > 1)
             {
                 Console.WriteLine("\n\n");
                 Console.WriteLine($"Congratulations! You matched multiple columns!");
@@ -82,7 +82,7 @@
                 Console.WriteLine($"Bets higher than {Constants.COLUMN_BET} will allow you to match columns as well.");
                 Console.WriteLine($"Bets of at least {Constants.FIRST_DIAGONAL_BET} will allow for the first diagonal");
                 Console.WriteLine($"and bets of {Constants.SECOND_DIAGONAL_BET} or more will allow for both!\n");
-                Console.WriteLine("How much money would you like to bet?");
+                Console.WriteLine($"You have ${moneyCount} left. How much money would you like to bet?");
                 validBet = Convert.ToInt32(Console.ReadLine());
 
                 if (validBet <= 0)

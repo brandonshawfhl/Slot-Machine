@@ -35,7 +35,7 @@
                     UserInterface.WriteWinningRowMessage(numberOfWinningRows);
                     if (numberOfWinningRows > 0)
                     {
-                        moneyCount += (userBet * Constants.ROW_WINNING_MULTIPLIER);
+                        moneyCount += (userBet * numberOfWinningRows * Constants.ROW_WINNING_MULTIPLIER);
                     }
 
                     //this section checks for a matching column
@@ -44,7 +44,7 @@
                     UserInterface.WriteWinningColumnMessage(numberOfWinningColumns);
                     if (numberOfWinningColumns > 0)
                     {
-                        moneyCount += (userBet * Constants.COLUMN_WINNING_MULTIPLIER);
+                        moneyCount += (userBet * numberOfWinningColumns * Constants.COLUMN_WINNING_MULTIPLIER);
                     }
 
                     //this section checks for the first way to match a diagonal (upper left to lower right)
@@ -53,7 +53,7 @@
                     UserInterface.WriteWinningDiagonalMessage(numberOfWinningFirstDiagonals);
                     if (numberOfWinningFirstDiagonals > 0)
                     {
-                        moneyCount += (userBet * Constants.DIAGONAL_WINNING_MULTIPIER);
+                        moneyCount += (userBet * numberOfWinningFirstDiagonals * Constants.DIAGONAL_WINNING_MULTIPIER);
                     }
 
                     //this section checks for the second way to match a diagonal (upper right to lower left)
@@ -62,7 +62,7 @@
                     UserInterface.WriteWinningDiagonalMessage(numberOfWinningSecondDiagonals);
                     if (numberOfWinningSecondDiagonals > 0)
                     {
-                        moneyCount += (userBet * Constants.DIAGONAL_WINNING_MULTIPIER);
+                        moneyCount += (userBet * numberOfWinningSecondDiagonals * Constants.DIAGONAL_WINNING_MULTIPIER);
                     }
 
                     UserInterface.WriteLosingSpinMessage(losesRound);
