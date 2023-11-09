@@ -39,12 +39,21 @@
             }
         }
 
-        public static void WriteWinningDiagonalMessage(int numberOfWinningDiagonals)
+        public static void WriteWinningFirstDiagonalMessage(int numberOfWinningFirstDiagonals)
         {
-            if (numberOfWinningDiagonals == 1)
+            if (numberOfWinningFirstDiagonals == 1)
             {
                 Console.WriteLine("\n\n");
-                Console.WriteLine($"Congratulations! You matched a diagonal!");
+                Console.WriteLine($"Congratulations! You matched the first diagonal!");
+            }
+        } 
+        
+        public static void WriteWinningSecondDiagonalMessage(int numberOfWinningSecondDiagonals)
+        {
+            if (numberOfWinningSecondDiagonals == 1)
+            {
+                Console.WriteLine("\n\n");
+                Console.WriteLine($"Congratulations! You matched the second diagonal!");
             }
         }
 
