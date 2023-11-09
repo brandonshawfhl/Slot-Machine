@@ -87,7 +87,7 @@
             return winningFirstDiagonalCount;
         }
 
-        public static int CheckForWinningSecondDiagonal(int[,] slotMachine, int moneyCount, int userBet)
+        public static int CheckForWinningSecondDiagonal(int[,] slotMachine, int userBet)
         {
             int winningSecondDiagonalCount = 0;
             bool winningSecondDiagonal = true;
@@ -105,7 +105,6 @@
 
                 if (winningSecondDiagonal)
                 {
-                    moneyCount += (userBet * Constants.DIAGONAL_WINNING_MULTIPIER);
                     winningSecondDiagonalCount += 1;
                 }
             }
