@@ -39,9 +39,13 @@
                     }
 
                     //this section checks for a matching column
-                    int numberOfWinningColumns = Logic.CheckForWinningColumns(slotMachine, moneyCount, userBet);
+                    int numberOfWinningColumns = Logic.CheckForWinningColumns(slotMachine, userBet);
                     losesRound = Logic.CheckForWinningRound(numberOfWinningColumns);
                     UserInterface.WriteWinningColumnMessage(numberOfWinningColumns);
+                    if (numberOfWinningColumns > 0)
+                    {
+                        moneyCount += (userBet * Constants.COLUMN_WINNING_MULTIPLIER);
+                    }
 
                     //this section checks for the first way to match a diagonal (upper left to lower right)
                     int numberOfWinningFirstDiagonals = Logic.CheckForWinningFirstDiagonal(slotMachine, moneyCount, userBet);

@@ -35,7 +35,7 @@
             }
             return losingRound;
         }
-        public static int CheckForWinningColumns(int[,] slotMachine, int moneyCount, int userBet)
+        public static int CheckForWinningColumns(int[,] slotMachine, int userBet)
         {
             int winningColumnCount = 0;
             bool winningColumn;
@@ -55,7 +55,6 @@
 
                     if (winningColumn)
                     {
-                        moneyCount += (userBet * Constants.COLUMN_WINNING_MULTIPLIER);
                         winningColumnCount += 1;
                     }
                 }
