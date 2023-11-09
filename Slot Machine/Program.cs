@@ -19,7 +19,7 @@
                 // loop for running the slots until user runs out of money
                 while (moneyCount > 0)
                 {
-                    userBet = UserInterface.BetIsValid(moneyCount);
+                    userBet = UserInterface.GetValidBet(moneyCount);
                     moneyCount -= userBet;
 
                     bool losesRound;
@@ -30,7 +30,7 @@
                     UserInterface.WriteSlotMachine(slotMachine);
 
                     //this section checks for a matching row
-                    int numberOfWinningRows = Logic.CheckForWinningRows(slotMachine);
+                    int numberOfWinningRows = Logic.GetWinningRows(slotMachine);
                     UserInterface.WriteWinningRowMessage(numberOfWinningRows);
                     if (numberOfWinningRows > 0)
                     {
@@ -38,7 +38,7 @@
                     }
 
                     //this section checks for a matching column
-                    int numberOfWinningColumns = Logic.CheckForWinningColumns(slotMachine, userBet);
+                    int numberOfWinningColumns = Logic.GetWinningColumns(slotMachine, userBet);
                     UserInterface.WriteWinningColumnMessage(numberOfWinningColumns);
                     if (numberOfWinningColumns > 0)
                     {
@@ -46,7 +46,7 @@
                     }
 
                     //this section checks for the first way to match a diagonal (upper left to lower right)
-                    int numberOfWinningFirstDiagonals = Logic.CheckForWinningFirstDiagonal(slotMachine, userBet);
+                    int numberOfWinningFirstDiagonals = Logic.GetWinningFirstDiagonal(slotMachine, userBet);
                     UserInterface.WriteWinningFirstDiagonalMessage(numberOfWinningFirstDiagonals);
                     if (numberOfWinningFirstDiagonals > 0)
                     {
@@ -54,19 +54,19 @@
                     }
 
                     //this section checks for the second way to match a diagonal (upper right to lower left)
-                    int numberOfWinningSecondDiagonals = Logic.CheckForWinningSecondDiagonal(slotMachine, userBet);
+                    int numberOfWinningSecondDiagonals = Logic.GetWinningSecondDiagonal(slotMachine, userBet);
                     UserInterface.WriteWinningSecondDiagonalMessage(numberOfWinningSecondDiagonals);
                     if (numberOfWinningSecondDiagonals > 0)
                     {
                         moneyCount += (userBet * numberOfWinningSecondDiagonals * Constants.DIAGONAL_WINNING_MULTIPIER);
                     }
 
-                    losesRound = Logic.CheckForWinningRound(numberOfWinningRows, numberOfWinningColumns, numberOfWinningFirstDiagonals, numberOfWinningSecondDiagonals);
+                    losesRound = Logic.isWinningRound(numberOfWinningRows, numberOfWinningColumns, numberOfWinningFirstDiagonals, numberOfWinningSecondDiagonals);
                     UserInterface.WriteLosingSpinMessage(losesRound);
                 }
                 UserInterface.WriteUserOutOfMoneyMessage();
 
-                playAgain = UserInterface.CheckIfUserWantsToPlayAgain();
+                playAgain = UserInterface.IsPlayAgain();
             } while (playAgain == Constants.USER_YES_CHOICE);
         }
     }

@@ -2,7 +2,7 @@
 {
     internal class Logic
     {
-        public static int CheckForWinningRows(int[,] slotMachine)
+        public static int GetWinningRows(int[,] slotMachine)
         {
             int winningRowCount = 0;
             bool winningRow;
@@ -26,7 +26,7 @@
             return winningRowCount;
         }
 
-        public static bool CheckForWinningRound(int numberOfWinningRows, int numberOfWinningColumns, int numberOfWinningFirstDiagonals, int numberOfWinningSecondDiagonals)
+        public static bool isWinningRound(int numberOfWinningRows, int numberOfWinningColumns, int numberOfWinningFirstDiagonals, int numberOfWinningSecondDiagonals)
         {
             bool losingRound = true;
             if (numberOfWinningRows + numberOfWinningColumns + numberOfWinningFirstDiagonals + numberOfWinningSecondDiagonals > 0)
@@ -35,7 +35,7 @@
             }
             return losingRound;
         }
-        public static int CheckForWinningColumns(int[,] slotMachine, int userBet)
+        public static int GetWinningColumns(int[,] slotMachine, int userBet)
         {
             int winningColumnCount = 0;
             bool winningColumn;
@@ -62,7 +62,7 @@
             return winningColumnCount;
         }
 
-        public static int CheckForWinningFirstDiagonal(int[,] slotMachine, int userBet)
+        public static int GetWinningFirstDiagonal(int[,] slotMachine, int userBet)
         {
             int winningFirstDiagonalCount = 0;
             bool winningFirstDiagonal;
@@ -87,7 +87,7 @@
             return winningFirstDiagonalCount;
         }
 
-        public static int CheckForWinningSecondDiagonal(int[,] slotMachine, int userBet)
+        public static int GetWinningSecondDiagonal(int[,] slotMachine, int userBet)
         {
             int winningSecondDiagonalCount = 0;
             bool winningSecondDiagonal = true;
@@ -118,7 +118,7 @@
             {
                 for (int horizontalNumber = 0; horizontalNumber < Constants.COLUMN_SIZE; horizontalNumber++)
                 {
-                    slotMachine[verticalNumber, horizontalNumber] = Program.rng.Next(0, 1);
+                    slotMachine[verticalNumber, horizontalNumber] = Program.rng.Next(0, Constants.RANDOM_MAX);
                 }
             }
         }

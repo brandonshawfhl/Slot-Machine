@@ -81,7 +81,7 @@
             Console.Clear();
         }
 
-        public static int BetIsValid(int moneyCount)
+        public static int GetValidBet(int moneyCount)
         {
             int validBet = 0;
             while (true)
@@ -112,7 +112,7 @@
             return validBet;
         }
 
-        public static char CheckIfUserWantsToPlayAgain()
+        public static char IsPlayAgain()
         {
             Console.WriteLine("\n");
             Console.WriteLine($"Would you like to play again?({Constants.USER_YES_CHOICE} or press any other key to exit the program)\n");
