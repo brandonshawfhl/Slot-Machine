@@ -21,7 +21,7 @@
                 {
                     userBet = UserInterface.BetIsValid(moneyCount);
                     moneyCount -= userBet;
-                    
+
                     bool losesRound;
 
                     UserInterface.ClearUserOutput();
@@ -30,9 +30,13 @@
                     UserInterface.WriteSlotMachine(slotMachine);
 
                     //this section checks for a matching row
-                    int numberOfWinningRows = Logic.CheckForWinningRows(slotMachine, userBet, moneyCount);
+                    int numberOfWinningRows = Logic.CheckForWinningRows(slotMachine);
                     losesRound = Logic.CheckForWinningRound(numberOfWinningRows);
                     UserInterface.WriteWinningRowMessage(numberOfWinningRows);
+                    if (numberOfWinningRows > 0)
+                    {
+                        moneyCount += (userBet * Constants.ROW_WINNING_MULTIPLIER);
+                    }
 
                     //this section checks for a matching column
                     int numberOfWinningColumns = Logic.CheckForWinningColumns(slotMachine, moneyCount, userBet);

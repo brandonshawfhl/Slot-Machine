@@ -2,7 +2,7 @@
 {
     internal class Logic
     {
-        public static int CheckForWinningRows(int[,] slotMachine, int moneyCount, int userBet)
+        public static int CheckForWinningRows(int[,] slotMachine)
         {
             int winningRowCount = 0;
             bool winningRow;
@@ -20,7 +20,6 @@
 
                 if (winningRow)
                 {
-                    moneyCount += (userBet * Constants.ROW_WINNING_MULTIPLIER);
                     winningRowCount += 1;
                 }
             }
