@@ -26,10 +26,10 @@
             return winningRowCount;
         }
 
-        public static bool CheckForWinningRound(int numberOfWinningMatches)
+        public static bool CheckForWinningRound(int numberOfWinningRows, int numberOfWinningColumns, int numberOfWinningFirstDiagonals, int numberOfWinningSecondDiagonals)
         {
             bool losingRound = true;
-            if (numberOfWinningMatches > 0)
+            if (numberOfWinningRows + numberOfWinningColumns + numberOfWinningFirstDiagonals + numberOfWinningSecondDiagonals > 0)
             {
                 losingRound = false;
             }

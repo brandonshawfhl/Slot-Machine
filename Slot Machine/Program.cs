@@ -31,7 +31,6 @@
 
                     //this section checks for a matching row
                     int numberOfWinningRows = Logic.CheckForWinningRows(slotMachine);
-                    losesRound = Logic.CheckForWinningRound(numberOfWinningRows);
                     UserInterface.WriteWinningRowMessage(numberOfWinningRows);
                     if (numberOfWinningRows > 0)
                     {
@@ -40,7 +39,6 @@
 
                     //this section checks for a matching column
                     int numberOfWinningColumns = Logic.CheckForWinningColumns(slotMachine, userBet);
-                    losesRound = Logic.CheckForWinningRound(numberOfWinningColumns);
                     UserInterface.WriteWinningColumnMessage(numberOfWinningColumns);
                     if (numberOfWinningColumns > 0)
                     {
@@ -49,7 +47,6 @@
 
                     //this section checks for the first way to match a diagonal (upper left to lower right)
                     int numberOfWinningFirstDiagonals = Logic.CheckForWinningFirstDiagonal(slotMachine, userBet);
-                    losesRound = Logic.CheckForWinningRound(numberOfWinningFirstDiagonals);
                     UserInterface.WriteWinningDiagonalMessage(numberOfWinningFirstDiagonals);
                     if (numberOfWinningFirstDiagonals > 0)
                     {
@@ -58,13 +55,13 @@
 
                     //this section checks for the second way to match a diagonal (upper right to lower left)
                     int numberOfWinningSecondDiagonals = Logic.CheckForWinningSecondDiagonal(slotMachine, userBet);
-                    losesRound = Logic.CheckForWinningRound(numberOfWinningSecondDiagonals);
                     UserInterface.WriteWinningDiagonalMessage(numberOfWinningSecondDiagonals);
                     if (numberOfWinningSecondDiagonals > 0)
                     {
                         moneyCount += (userBet * numberOfWinningSecondDiagonals * Constants.DIAGONAL_WINNING_MULTIPIER);
                     }
 
+                    losesRound = Logic.CheckForWinningRound(numberOfWinningRows, numberOfWinningColumns, numberOfWinningFirstDiagonals, numberOfWinningSecondDiagonals);
                     UserInterface.WriteLosingSpinMessage(losesRound);
                 }
                 UserInterface.WriteUserOutOfMoneyMessage();
