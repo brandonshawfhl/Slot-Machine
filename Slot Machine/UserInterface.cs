@@ -20,7 +20,7 @@
             else if (numberOfWinningRows > 1)
             {
                 Console.WriteLine("\n\n");
-                Console.WriteLine($"Congratulations! You matched multiple rows!");
+                Console.WriteLine($"Congratulations! You matched {numberOfWinningRows} rows!");
             }
         }
 
@@ -35,7 +35,7 @@
             else if (numberOfWinningColumns > 1)
             {
                 Console.WriteLine("\n\n");
-                Console.WriteLine($"Congratulations! You matched multiple columns!");
+                Console.WriteLine($"Congratulations! You matched {numberOfWinningColumns} columns!");
             }
         }
 
