@@ -25,6 +25,11 @@
             }
             return winningRowCount;
         }
+        /// <summary>
+        /// Checks slotMachine[,] for rows that match all the way across.
+        /// </summary>
+        /// <param name="slotMachine"></param>
+        /// <returns>the number of matching rows</returns>
 
         public static bool isWinningRound(int numberOfWinningRows, int numberOfWinningColumns, int numberOfWinningFirstDiagonals, int numberOfWinningSecondDiagonals)
         {
