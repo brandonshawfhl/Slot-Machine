@@ -153,7 +153,7 @@
             {
                 for (int horizontalNumber = 0; horizontalNumber < Constants.COLUMN_SIZE; horizontalNumber++)
                 {
-                    slotMachine[verticalNumber, horizontalNumber] = Program.rng.Next(0, Constants.RANDOM_MAX);
+                    slotMachine[verticalNumber, horizontalNumber] = Program.rng.Next(0, 1);
                 }
             }
         }
