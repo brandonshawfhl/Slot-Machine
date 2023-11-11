@@ -146,9 +146,9 @@
         }
 
         /// <summary>
-        /// Asks if the user would like to play again and then gives instructions on how to communicate that.
+        /// Asks if the user would like to play again and then gives instructions on how to answer the question.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>whether or not the user would like to play again (true or false)</returns>
         public static char IsPlayAgain()
         {
             Console.WriteLine("\n");
@@ -157,6 +157,10 @@
             return wantsToPlayAgain;
         }
 
+        /// <summary>
+        /// Outputs the array to the user.
+        /// </summary>
+        /// <param name="slotMachine">the array</param>
         public static void WriteSlotMachine(int[,] slotMachine)
         {
             for (int verticalNumber = 0; verticalNumber < Constants.ROW_SIZE; verticalNumber++)
